@@ -1,0 +1,37 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  font-style: normal;
+}
+
+.boton {
+  width: auto;
+  border: none;
+  background-color: #008536;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.boton:hover {
+  cursor: pointer;
+  background-color: #009b3e;
+}
+
+.mensajeErrorInicioSesion {
+  text-align: center;
+  color: #ff0000;
+  text-align: center;
+  margin: auto;
+  margin: 5px 0px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}

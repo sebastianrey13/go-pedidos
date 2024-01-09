@@ -1,0 +1,136 @@
+.popup-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000000;
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.popup {
+    width: 300px;
+    background-color: #F7F7F7;
+    padding: 20px;
+    border: 1px solid #F7F7F7;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 2;
+    position: relative;
+}
+
+.popupSinup {
+    margin-top: 50px;
+}
+
+.close-button {
+    position: absolute;
+    max-width: 30px;
+    max-height: 30px;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.close-button-img {
+    position: absolute;
+    max-width: 30px;
+    max-height: 30px;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.input-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    background-color: #E6E6E6;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.input-container img {
+    width: 45px;
+}
+
+.icon-user {
+    font-size: 20px;
+    color: #fff;
+    background-color: #E6E6E6;
+    border-radius: 5px;
+    margin-right: 5px;
+}
+
+.input-container input {
+    padding: 5px;
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+}
+
+.custom-icon {
+    width: 50px;
+    height: auto;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.popup-title {
+    text-align: center;
+    line-height: 2;
+    margin-bottom: 10px;
+}
+
+.botonIngreso {
+    color: #ffffff;
+    margin: 5px;
+    font-size: 15px;
+}
+
+.estilosForm {
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 300px;
+}
+
+.registerLink {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 14px;
+    color: #333;
+}
+
+.registerLinkHere {
+    color: #008536;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.registerLinkHere:hover {
+    text-decoration: underline;
+}
