@@ -1,3 +1,3 @@
 # React + Vite
 
-Go Pedidos
+Go Pedidos en React

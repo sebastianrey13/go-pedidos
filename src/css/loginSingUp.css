@@ -11,7 +11,7 @@
     z-index: 10000000;
 }
 
-.popup-overlay {
+/* .popup-overlay {
     position: fixed;
     top: 0;
     left: 0;
@@ -22,7 +22,7 @@
     align-items: center;
     justify-content: center;
     z-index: 1000;
-}
+} */
 
 .popup {
     width: 300px;

@@ -27,3 +27,7 @@
 .header-contenido-2{
     gap: 20px;
 }
+
+.header-menuMobile{
+    position: absolute;
+}

@@ -36,6 +36,11 @@ const SingUp = (props) => {
 
     const handleSignup = (e) => {
         e.preventDefault();
+        
+        if (signupPassword !== signupConfirmPassword) {
+            setError('Las contraseñas no coinciden');
+            return;
+        }
 
         if (!signupEmail || !signupPassword || !signupConfirmPassword ||
             !signupName || !signupLastName || !signupPhoneNumber) {
@@ -43,10 +48,11 @@ const SingUp = (props) => {
             return;
         }
 
-        if (signupPassword !== signupConfirmPassword) {
-            setError('Las contraseñas no coinciden');
-            return;
-        }
+        if(signupPassword === signupConfirmPassword && signupEmail || signupPassword || signupConfirmPassword ||
+            signupName || signupLastName || signupPhoneNumber){
+                setError('Crear usuario no esta disponible');
+                return;
+            }
 
         const registrarUsuario = {
             name: signupName,
@@ -162,7 +168,7 @@ const SingUp = (props) => {
                 />
                 <p className="registerLink">¿Ya tienes una cuenta? <span
                     className='registerLinkHere'
-                    onClick={props.abrirSinupPopup}
+                    onClick={props.abrirLoginPopup}
                 >Ingresa aquí</span>
                 </p>
             </div>
