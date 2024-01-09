@@ -40,43 +40,7 @@ const MenuMobile = ({ toggleDesplegado }) => {
         cerrarMenu();
     };
 
-    // const handleClickOutside = (event) => {
-    //     if (menuDesplegado && menuRef.current && !menuRef.current.contains(event.target)) {
-    //         cerrarMenu();
-    //     }
-    // };
-
-    // useEffect(() => {
-
-    
-    //     if (menuDesplegado) {
-    //         // Agregar event listener para cerrar el menú al hacer clic en el fondo
-    //         document.addEventListener('click', handleClickOutside);
-    //     }
-
-    //     // Limpiar los event listeners al desmontar el componente
-    //     return () => {
-    //         document.removeEventListener('click', handleClickOutside);
-    //     };
-    // }, [menuDesplegado]);
-
     return (
-        // <div ref={menuRef}>
-        //     <img className='header-img-iconos' onClick={abrirMenu} src={menu} alt="icono-menu" />
-        //     {menuDesplegado && (
-        //         <div className='popup-bg-menu' >
-        //             <div className="popupMenu">
-        //                 <ul className='opcionesMenu'>
-        //                     {opcionesMenu.map((opcion, index) => (
-        //                         <Link to={`/${opcion.url}`} key={index + 1}>
-        //                             <li>{opcion.nombre}</li>
-        //                         </Link>
-        //                     ))}
-        //                 </ul>
-        //             </div>
-        //         </div>
-        //     )}
-        // </div>
         <div ref={menuRef}>
             <img className='header-img-iconos' onClick={abrirMenu} src={menu} alt="icono-menu" />
             {menuDesplegado && (
