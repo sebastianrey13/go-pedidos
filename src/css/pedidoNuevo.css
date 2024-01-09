@@ -1,0 +1,45 @@
+.pedidoNuevo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-pedidoNuevo {
+    width: 320px;
+    margin-top: 20px;
+}
+
+.input-pedidoNuevo {
+
+}
+
+.input-pedidoNuevo input {
+    font-size: 18px;
+}
+
+input[type="date"] {
+    /* padding-left: 50px; */
+}
+
+.input-select-pedidoNuevo{
+
+}
+
+.select-pedidoNuevo{
+    width: 255px;
+    height: 30px;
+    margin: 0.5px;
+    padding: 0px;
+    padding-left: 5px;
+}
+.option-pedidoNuevo{
+    height: 30px;
+}
+
+
+/* No es necesario mover el icono porque al estar deshabilitado se oculta */
+/* input[type="date"]::-webkit-calendar-picker-indicator {
+    position: relative;
+    left: -267px;
+} */
