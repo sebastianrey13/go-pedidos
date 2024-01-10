@@ -122,7 +122,7 @@ const PedidoNuevo = () => {
 
     return (
         <div className='pedidoNuevo'>
-            <h2>Nueva Cotización</h2>
+            <h2 className='titulo'>Nueva Cotización</h2>
             <form className='form-pedidoNuevo' onSubmit={handleLogin}>
                 <div className="input-container input-pedidoNuevo">
                     <img src={iconoUsuario} className="custom-icon" />

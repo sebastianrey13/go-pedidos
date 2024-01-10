@@ -1,0 +1,42 @@
+.cardCategoria{
+    margin: 5px;
+    position: relative;
+}
+
+.cardCategoria-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cardCategoriaImg{
+    width: 163px;
+    height: 214px;
+    opacity: 0.85;
+    z-index: -1;
+    border-radius: 5px;
+}
+
+.cardCategoria-h2{
+    position: absolute;
+    top: 40%;
+    color: #ffffff;
+    font-size: 25px;
+    font-weight: 800;
+    /* border: 3px solid; */
+    padding: 5px;
+    /* text-decoration: underline; */
+}
+
+.cardCategoria-p{
+    position: absolute;
+    top: 80%;
+    padding: 5px 15px;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+    color: #ffffff;
+    background-color: rgb(0, 0, 0);
+    font-size: 12px;
+    /* font-weight: bold; */
+}
