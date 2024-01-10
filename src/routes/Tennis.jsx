@@ -37,6 +37,26 @@ const Tennis = () => {
           color: 'Negro',
           img: tennisNegro,
         },
+        {
+          id: 1,
+          color: 'Azul',
+          img: tennisAzul,
+        },
+        {
+          id: 2,
+          color: 'Gris',
+          img: tennisGris,
+        },
+        {
+          id: 3,
+          color: 'Naranja',
+          img: tennisNaranja,
+        },
+        {
+          id: 4,
+          color: 'Negro',
+          img: tennisNegro,
+        },
       ],
     }
   ]
