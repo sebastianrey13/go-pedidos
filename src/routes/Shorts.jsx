@@ -5,7 +5,7 @@ import '../css/cardCategoria.css'
 
 import shortAzul from '../../public/productos/shorts/short_azul.png'
 import shortCeleste from '../../public/productos/shorts/short_celeste.png'
-import shortNaranja from '../../public/productos/shorts/short_Naranja.png'
+import shortNaranja from '../../public/productos/shorts/short_naranja.png'
 import shortNegroGris from '../../public/productos/shorts/short_negro_gris.png'
 import shortNegro from '../../public/productos/shorts/short_negros.png'
 import shortDamaTejidoAzul from '../../public/productos/shorts/short_dama_tejido_azul.png'
