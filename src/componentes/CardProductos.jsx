@@ -16,7 +16,8 @@ const CardProductos = (props) => {
     const [tallaSeleccionada, setTallaSeleccionada] = useState('');
     const [isAñadir, setIsAñadir] = useState(false);
     const [isSelectColor, setIsSelectColor] = useState(true);
-
+    const [imagenSeleccionada, setImagenSeleccionada] = useState(0);
+    const [precioFormateado, setprecioFormateado] = useState(0);
 
     const tallas = [
         {
@@ -41,18 +42,6 @@ const CardProductos = (props) => {
         },
     ]
 
-    // const [iconoTallas, setIconoTallas] = useState(faAngleUp);
-
-    // useEffect(() => {
-    //     if (desplegarTallas === false) {
-    //         setIconoTallas(faAngleUp)
-    //     } else {
-    //         setIconoTallas(faAngleDown)
-    //     }
-    // }, [desplegarTallas])
-
-    // icon={iconoTallas}
-
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
         setDesplegarTallas(!desplegarTallas)
@@ -71,13 +60,24 @@ const CardProductos = (props) => {
     const [selectedColorIndex, setSelectedColorIndex] = useState(null);
 
     const handleColorClick = (index) => {
-        setSelectedColorIndex(index === selectedColorIndex ? null : index);
+        setSelectedColorIndex(index);
+        setImagenSeleccionada(index);
     };
+
+    useEffect(() => {
+        formatearNumero(props.precio);
+    }, [props.precio]);
+
+    function formatearNumero(precio) {
+        const partes = String(precio).split(/(?=(?:\d{3})+(?!\d))/);
+        const resultado = partes.join('.');
+        setprecioFormateado(resultado);
+    }
 
     return (
         <div className='cardProducto'>
             <div className='cardProductoDiv1'>
-                <img src={tennisImg1} alt="" />
+                <img src={props.colores[imagenSeleccionada].img} alt="" />
                 <div className='cardProductoDiv1P'>
                     {isAñadir ? (
                         <p
@@ -101,18 +101,18 @@ const CardProductos = (props) => {
                     </div>
                     {isDropdownOpen && (
                         <ul className="dropdown-list">
-                            {tallas.map((props, index) => (
+                            {tallas.map((talla, index) => (
                                 <li
-                                    onClick={() => seleccionarTalla(props.talla)}
+                                    onClick={() => seleccionarTalla(talla.talla)}
                                     key={index + 1}>
-                                    {props.talla}
+                                    {talla.talla}
                                 </li>
                             ))}
                         </ul>
                     )}
                 </div>
             </div>
-            <p>$150.000</p>
+            <p>{`$${precioFormateado}`}</p>
             {isSelectColor ?
                 (
                     <p className='cardProducto-masColores' onClick={toggleSelectcolor}>Más Colores +</p>
@@ -120,7 +120,9 @@ const CardProductos = (props) => {
                     <div className='cardProducto-contenedorDecolores'>
                         {props.colores.map((color, index) => (
                             <img
-                                className={`coloresProductos ${selectedColorIndex === index ? 'selected' : ''}`} key={index + 1}
+                                className={`coloresProductos ${selectedColorIndex === index ? 'selected' : ''}`}
+                                key={index + 1}
+                                id={color.id}
                                 src={color.img}
                                 alt=""
                                 onClick={() => handleColorClick(index)}
@@ -133,19 +135,3 @@ const CardProductos = (props) => {
 }
 
 export default CardProductos
-
-/*
-
-<div className='cardProducto-contenedorDecolores'>
-{props.colores.map((color, index) => (
-  <img
-    className={`coloresProductos ${selectedColorIndex === index ? 'selected' : ''}`}
-    key={index + 1}
-    src={color.img}
-    alt=""
-    onClick={() => handleColorClick(index)}
-  />
-))}
-
-
-</div>*/

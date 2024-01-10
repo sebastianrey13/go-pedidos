@@ -7,6 +7,20 @@ import tennisAzul from '../../public/productos/tennis/tenis_azules.png'
 import tennisGris from '../../public/productos/tennis/tenis_grises.png'
 import tennisNaranja from '../../public/productos/tennis/tenis_naranjas.png'
 import tennisNegro from '../../public/productos/tennis/tenis_negros.png'
+import tennisBlanco from '../../public/productos/tennis/tenis_blancos.png'
+import tennisTurquesa from '../../public/productos/tennis/tenis_turquesa.png'
+import tennisGrinchBlancoVerde from '../../public/productos/tennis/tenis_grich_blanco_verde.png'
+import tennisGrinchRojoRosa from '../../public/productos/tennis/tenis_grich_rojo-rosa.png'
+import tennisGrinchVerdeNaranja from '../../public/productos/tennis/tenis_grich_verde-naranja.png'
+import tennisEQ19AzulRey from '../../public/productos/tennis/tenis_eq19_azulrey.png'
+import tennisEQ19Blanco from '../../public/productos/tennis/tenis_eq19_blancos.png'
+import tennisEQ19NegroBlanco from '../../public/productos/tennis/tenis_eq19_negro_blanco.png'
+import tennisEQ19Negro from '../../public/productos/tennis/tenis_eq19_negro.png'
+import tennisSambaBeige from '../../public/productos/tennis/tenis_samba_beige.png'
+import tennisSambaBlancoRojo from '../../public/productos/tennis/tenis_samba_blanco_rojo.png'
+import tennisSambaBlancoVerde from '../../public/productos/tennis/tenis_samba_blanco_verde.png'
+import tennisSambaNegro from '../../public/productos/tennis/tenis_samba_negro.png'
+import tennisSambaVerde from '../../public/productos/tennis/tenis_samba_verde.png'
 
 
 const Tennis = () => {
@@ -16,6 +30,7 @@ const Tennis = () => {
       id: 1,
       nombre: 'Tennis deportivos',
       ref: '#5574ASD',
+      precio: 150000,
       colores: [
         {
           id: 1,
@@ -38,38 +53,115 @@ const Tennis = () => {
           img: tennisNegro,
         },
         {
+          id: 5,
+          color: 'Blanco',
+          img: tennisBlanco,
+        },
+        {
+          id: 6,
+          color: 'Turquesa',
+          img: tennisTurquesa,
+        }
+      ]
+    },
+    {
+      id: 2,
+      nombre: 'Tennis Grinch',
+      ref: '#31874LJKD',
+      precio: 312999,
+      colores: [
+        {
           id: 1,
-          color: 'Azul',
-          img: tennisAzul,
+          color: 'Blanco/Verde',
+          img: tennisGrinchBlancoVerde,
         },
         {
           id: 2,
-          color: 'Gris',
-          img: tennisGris,
+          color: 'Rojo/Rosa',
+          img: tennisGrinchRojoRosa,
         },
         {
           id: 3,
-          color: 'Naranja',
-          img: tennisNaranja,
+          color: 'Verde/Naranja',
+          img: tennisGrinchVerdeNaranja,
+        }
+      ]
+    },
+    {
+      id: 3,
+      nombre: 'Tennis deportivos EQ19',
+      ref: '#2694EQ19',
+      precio: 661999,
+      colores: [
+        {
+          id: 1,
+          color: 'Azul Rey',
+          img: tennisEQ19AzulRey,
+        },
+        {
+          id: 2,
+          color: 'Blanco',
+          img: tennisEQ19Blanco,
+        },
+        {
+          id: 3,
+          color: 'Negro/Blanco',
+          img: tennisEQ19NegroBlanco,
         },
         {
           id: 4,
           color: 'Negro',
-          img: tennisNegro,
+          img: tennisEQ19Negro,
         },
-      ],
-    }
+      ]
+    },
+    {
+      id: 4,
+      nombre: 'Tennis Samba',
+      ref: '#96574ASAMBAD',
+      precio: 299999,
+      colores: [
+        {
+          id: 1,
+          color: 'Beige',
+          img: tennisSambaBeige,
+        },
+        {
+          id: 2,
+          color: 'Blanco/Rojo',
+          img: tennisSambaBlancoRojo,
+        },
+        {
+          id: 3,
+          color: 'Blanco/Verde',
+          img: tennisSambaBlancoVerde,
+        },
+        {
+          id: 4,
+          color: 'Negro',
+          img: tennisSambaNegro,
+        },
+        {
+          id: 5,
+          color: 'Verde',
+          img: tennisSambaVerde,
+        }
+      ]
+    },
   ]
 
 
   return (
     <div>
       <div className='homeCardCategorias'>
-        {tennis.map((props, index) => (
+        {tennis.map((tenni, index) => (
           <CardProductos
             key={index + 1}
-            id={props.id}
-            colores={props.colores}
+            nombre={tenni.nombre}
+            referencia={tenni.referencia}
+            precio={tenni.precio}
+            id={tenni.id}
+            colores={tenni.colores}
           />
         ))}
       </div>
