@@ -14,22 +14,42 @@ const Home = () => {
   const categorias = [
     {
       id : 1,
-      nombre : 'Chaquetas',
+      nombre : 'CHAQUETAS',
       img : chaquetasImg,
     },
     {
       id : 2,
-      nombre : 'Pantalones',
+      nombre : 'PANTALONES',
       img : pantalonesImg,
     },
     {
       id : 3,
-      nombre : 'Shorts',
+      nombre : 'SHORTS',
       img : shortsImg,
     },
     {
       id : 4,
-      nombre : 'Tennis',
+      nombre : 'TENNIS',
+      img : tennisImg,
+    },
+    {
+      id : 1,
+      nombre : 'CHAQUETAS',
+      img : chaquetasImg,
+    },
+    {
+      id : 2,
+      nombre : 'PANTALONES',
+      img : pantalonesImg,
+    },
+    {
+      id : 3,
+      nombre : 'SHORTS',
+      img : shortsImg,
+    },
+    {
+      id : 4,
+      nombre : 'TENNIS',
       img : tennisImg,
     },
   ]
@@ -38,7 +58,7 @@ const Home = () => {
 
 
   return (
-    <div className='homeCardCategorias'>
+    <div className='h'>
       <div className='homeCardCategorias'>
         {categorias.map((props , index) =>(
           <CardCategoria

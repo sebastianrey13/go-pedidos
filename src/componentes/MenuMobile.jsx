@@ -16,18 +16,27 @@ const MenuMobile = ({ toggleDesplegado }) => {
             url: 'realizar-pedido'
         },
         {
-            nombre: 'Opcion 1',
-            url: 'realizar-pedido'
+            nombre: 'Productos',
+            url: 'productos'
         },
         {
-            nombre: 'Opcion 2',
-            url: 'realizar-pedido'
+            nombre: 'Chaquetas',
+            url: 'productos/chaquetas'
         },
         {
-            nombre: 'Opcion 3',
-            url: 'realizar-pedido'
+            nombre: 'Tennis',
+            url: 'productos/tennis'
+        },
+        {
+            nombre: 'Shorts',
+            url: 'productos/shorts'
+        },
+        {
+            nombre: 'Pantalones',
+            url: 'productos/pantalones'
         },
     ]
+
     const abrirMenu = () => {
         setMenuDesplegado(true)
     }

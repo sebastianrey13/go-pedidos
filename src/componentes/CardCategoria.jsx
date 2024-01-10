@@ -1,5 +1,6 @@
 import React from 'react'
 import '../css/cardCategoria.css'
+import { Link } from 'react-router-dom'
 import tennisImg from '../../public/categorias/tennis.png'
 
 const CardCategoria = (props) => {
@@ -8,7 +9,9 @@ const CardCategoria = (props) => {
         <div className='cardCategoria'>
             <div className='cardCategoria-container'>
                 <h2 className='cardCategoria-h2'>{props.nombre}</h2>
-                <p className='cardCategoria-p'>Ver Más</p>
+                <Link to={`/productos/${props.nombre.toLowerCase()}`} className='cardCategoria-a'>
+                    <p>Ver Más</p>
+                </Link>
                 <img className='cardCategoriaImg' src={props.img} alt="" />
             </div>
         </div>

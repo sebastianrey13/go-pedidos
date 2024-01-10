@@ -1,16 +1,17 @@
-.cardCategoria{
+/* Categortias */
+.cardCategoria {
     margin: 8px;
     position: relative;
 }
 
-.cardCategoria-container{
+.cardCategoria-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.cardCategoriaImg{
+.cardCategoriaImg {
     width: 163px;
     height: 214px;
     opacity: 0.85;
@@ -18,26 +19,82 @@
     border-radius: 5px;
 }
 
-.cardCategoria-h2{
+.cardCategoria-h2 {
     position: absolute;
     top: 40%;
     color: #ffffff;
-    font-size: 25px;
+    font-size: 20px;
     font-weight: 800;
-    /* border: 3px solid; */
     padding: 5px;
+    /* border: 3px solid; */
     /* text-decoration: underline; */
 }
 
-.cardCategoria-p{
+.cardCategoria-a {
+    text-decoration: none;
     position: absolute;
     top: 80%;
     padding: 5px 15px;
     border-radius: 5px;
     border: 1px solid #ffffff;
     color: #ffffff;
-    background-color: #000000;
+    /* background-color: #000000; */
     background-color: #02652C;
     font-size: 15px;
     /* font-weight: bold; */
+}
+
+/* Productos */
+
+.cardProductoDiv1 {
+    height: 225px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cardProductoDiv1 img {
+    width: 200px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+
+.cardProductoDiv1P {
+    position: relative;
+    font-size: 16px;
+    height: 25px;
+    color: #ffffff;
+    background-color: #02652C;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 8px 0px 12px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.dropdown-list {
+    position: absolute;
+    list-style-type: none;
+    background-color: #ffffff;
+    width: 200px;
+    top: -430%;
+    right: 0;
+    /* -decoration: underline; */
+    border: 1px solid #000000;
+}
+
+.dropdown-list li {
+    width: 100%;
+    border-bottom: 1px solid #cecece;
+    padding: 2px 10px;
+    color: #333;
+    font-size: 14px;
+}
+
+.iconoDeTallas {
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
