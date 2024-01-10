@@ -13,44 +13,44 @@ const Home = () => {
 
   const categorias = [
     {
-      id : 1,
-      nombre : 'CHAQUETAS',
-      img : chaquetasImg,
+      id: 1,
+      nombre: 'CHAQUETAS',
+      img: chaquetasImg,
     },
     {
-      id : 2,
-      nombre : 'PANTALONES',
-      img : pantalonesImg,
+      id: 2,
+      nombre: 'PANTALONES',
+      img: pantalonesImg,
     },
     {
-      id : 3,
-      nombre : 'SHORTS',
-      img : shortsImg,
+      id: 3,
+      nombre: 'SHORTS',
+      img: shortsImg,
     },
     {
-      id : 4,
-      nombre : 'TENNIS',
-      img : tennisImg,
+      id: 4,
+      nombre: 'TENNIS',
+      img: tennisImg,
     },
     {
-      id : 1,
-      nombre : 'CHAQUETAS',
-      img : chaquetasImg,
+      id: 1,
+      nombre: 'CHAQUETAS',
+      img: chaquetasImg,
     },
     {
-      id : 2,
-      nombre : 'PANTALONES',
-      img : pantalonesImg,
+      id: 2,
+      nombre: 'PANTALONES',
+      img: pantalonesImg,
     },
     {
-      id : 3,
-      nombre : 'SHORTS',
-      img : shortsImg,
+      id: 3,
+      nombre: 'SHORTS',
+      img: shortsImg,
     },
     {
-      id : 4,
-      nombre : 'TENNIS',
-      img : tennisImg,
+      id: 4,
+      nombre: 'TENNIS',
+      img: tennisImg,
     },
   ]
 
@@ -58,13 +58,13 @@ const Home = () => {
 
 
   return (
-    <div className='h'>
+    <div>
       <div className='homeCardCategorias'>
-        {categorias.map((props , index) =>(
+        {categorias.map((props, index) => (
           <CardCategoria
-          key = {index+1}
-          nombre = {props.nombre}
-          img = {props.img}
+            key={index + 1}
+            nombre={props.nombre}
+            img={props.img}
           />
         ))}
       </div>

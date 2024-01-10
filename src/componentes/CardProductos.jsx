@@ -9,66 +9,143 @@ import tennisImg1 from '../../public/productos/tennis/tenis_azules.png'
 // import tennisImg3 from '../../public/productos/tennis/tenis_naranjas.png'
 
 
-const CardProductos = () => {
+const CardProductos = (props) => {
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [desplegarTallas, setDesplegarTallas] = useState(false);
-    const [iconoTallas, setIconoTallas] = useState(faAngleUp);
+    const [tallaSeleccionada, setTallaSeleccionada] = useState('');
+    const [isAñadir, setIsAñadir] = useState(false);
+    const [isSelectColor, setIsSelectColor] = useState(true);
 
-    useEffect(() => {
-        if (desplegarTallas === false) {
-            setIconoTallas(faAngleUp)
-        } else {
-            setIconoTallas(faAngleDown)
-        }
-    }, [desplegarTallas])
+
+    const tallas = [
+        {
+            id: 1,
+            talla: 'XS'
+        },
+        {
+            id: 2,
+            talla: 'S'
+        },
+        {
+            id: 3,
+            talla: 'M'
+        },
+        {
+            id: 4,
+            talla: 'L'
+        },
+        {
+            id: 5,
+            talla: 'XL'
+        },
+    ]
+
+    // const [iconoTallas, setIconoTallas] = useState(faAngleUp);
+
+    // useEffect(() => {
+    //     if (desplegarTallas === false) {
+    //         setIconoTallas(faAngleUp)
+    //     } else {
+    //         setIconoTallas(faAngleDown)
+    //     }
+    // }, [desplegarTallas])
+
+    // icon={iconoTallas}
 
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
         setDesplegarTallas(!desplegarTallas)
     };
 
+    const seleccionarTalla = (talla) => {
+        setTallaSeleccionada(talla);
+        toggleDropdown();
+        setIsAñadir(true);
+    };
+
+    const toggleSelectcolor = () => {
+        setIsSelectColor(!isSelectColor)
+    }
+
+    const [selectedColorIndex, setSelectedColorIndex] = useState(null);
+
+    const handleColorClick = (index) => {
+        setSelectedColorIndex(index === selectedColorIndex ? null : index);
+    };
+
     return (
-        <div>
+        <div className='cardProducto'>
             <div className='cardProductoDiv1'>
                 <img src={tennisImg1} alt="" />
-                {/* <div className='cardProductoDiv1P'>
-                    <p>Talla</p>
-                    <div className='iconoDeTallas' onClick={toggleDropdown}>
-                        <FontAwesomeIcon
-                            icon={iconoTallas}
-                        />
-                    </div>
-                    {isDropdownOpen && (
-                        <ul className="dropdown-list">
-                            <li>XS</li>
-                            <li>S</li>
-                            <li>M</li>
-                            <li>L</li>
-                            <li>XL</li>
-                        </ul>
+                <div className='cardProductoDiv1P'>
+                    {isAñadir ? (
+                        <p
+                            className='pAñadir'
+                        >
+                            Añadir
+                        </p>
+                    ) : (
+                        <p>Talla</p>
                     )}
-                </div> */}
-                <div className='cardProductoDiv1P cardProductoDiv2P'>
-                    <p>Añadir</p>
-                    <div className='iconoDeTallas' onClick={toggleDropdown}>
+                    <div
+                        className={`iconoDeTallas ${isAñadir ? 'tallaSeleccionada' : ''}`}
+                        onClick={toggleDropdown}
+                    >
+                        {isAñadir && (
+                            <p>{tallaSeleccionada}</p>
+                        )}
                         <FontAwesomeIcon
-                            icon={iconoTallas}
+                            icon={desplegarTallas ? faAngleDown : faAngleUp}
                         />
                     </div>
                     {isDropdownOpen && (
                         <ul className="dropdown-list">
-                            <li>XS</li>
-                            <li>S</li>
-                            <li>M</li>
-                            <li>L</li>
-                            <li>XL</li>
+                            {tallas.map((props, index) => (
+                                <li
+                                    onClick={() => seleccionarTalla(props.talla)}
+                                    key={index + 1}>
+                                    {props.talla}
+                                </li>
+                            ))}
                         </ul>
                     )}
                 </div>
             </div>
+            <p>$150.000</p>
+            {isSelectColor ?
+                (
+                    <p className='cardProducto-masColores' onClick={toggleSelectcolor}>Más Colores +</p>
+                ) : (
+                    <div className='cardProducto-contenedorDecolores'>
+                        {props.colores.map((color, index) => (
+                            <img
+                                className={`coloresProductos ${selectedColorIndex === index ? 'selected' : ''}`} key={index + 1}
+                                src={color.img}
+                                alt=""
+                                onClick={() => handleColorClick(index)}
+                            />
+                        ))}
+                    </div>
+                )}
         </div>
     )
 }
 
 export default CardProductos
+
+/*
+
+<div className='cardProducto-contenedorDecolores'>
+{props.colores.map((color, index) => (
+  <img
+    className={`coloresProductos ${selectedColorIndex === index ? 'selected' : ''}`}
+    key={index + 1}
+    src={color.img}
+    alt=""
+    onClick={() => handleColorClick(index)}
+  />
+))}
+
+
+</div>*/
