@@ -48,7 +48,12 @@ const CardProductos = (props) => {
 
     const toggleDropdown = () => {
         setIsDropdownOpen(!isDropdownOpen);
-        setDesplegarTallas(!desplegarTallas)
+        setDesplegarTallas(!desplegarTallas);
+    };
+
+    const cerrarDropdown = () => {
+        setIsDropdownOpen(false);
+        setDesplegarTallas(false);
     };
 
     const seleccionarTalla = (talla) => {
@@ -125,12 +130,11 @@ const CardProductos = (props) => {
     }
 
 
-
     return (
         <div className='cardProducto'>
             <h2>{props.nombre}</h2>
             <div className='cardProductoDiv1'>
-                <img src={props.colores[imagenSeleccionada].img} alt="" />
+                <img onClick={mostrarConfirmarProducto} src={props.colores[imagenSeleccionada].img} alt="" />
                 <div className='cardProductoDiv1P'>
                     {isAñadir ? (
                         <p
@@ -140,7 +144,7 @@ const CardProductos = (props) => {
                             Añadir
                         </p>
                     ) : (
-                        <p>Talla</p>
+                        <p className='cardProductoDiv1P-talla' onClick={toggleDropdown}>Talla</p>
                     )}
                     <div
                         className={`iconoDeTallas ${isAñadir ? 'tallaSeleccionada' : ''}`}
@@ -245,10 +249,10 @@ const CardProductos = (props) => {
                                 <p className='cardProductoRef'><span>REF: </span>{props.referencia}</p>
                                 <p className='cardProductoRef cardProductoDetalle'><span>Detalle: </span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolorem debitis aut nesciunt cumque cum molestias harum, inventore ipsa odit nihil rem sequi laboriosam iusto quia libero sed earum facilis.
 
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolorem debitis aut nesciunt cumque cum molestias harum, inventore ipsa odit nihil rem sequi laboriosam iusto quia libero sed earum facilis.
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolorem debitis aut nesciunt cumque cum molestias harum, inventore ipsa odit nihil rem sequi laboriosam iusto quia libero sed earum facilis.
 
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolorem debitis aut nesciunt cumque cum molestias harum, inventore ipsa odit nihil rem sequi laboriosam iusto quia libero sed earum facilis.
-                                
+                                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolorem debitis aut nesciunt cumque cum molestias harum, inventore ipsa odit nihil rem sequi laboriosam iusto quia libero sed earum facilis.
+
                                 </p>
                             </div>
                             <div className='cantidad-agregar-confirmarProducto'>
