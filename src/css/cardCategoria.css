@@ -124,7 +124,14 @@
 
 .pAñadir {
     margin-left: 10px;
-    padding: 0 5px;
+    padding: 1px 8px;
+    cursor: pointer;
+    border-bottom: 1px solid #ffffff;
+    /* border-radius: 5px; */
+}
+
+.pAñadir:hover{
+    opacity: 0.8;
 }
 
 .dropdown-list {
@@ -256,17 +263,24 @@
 }
 
 .confirmarProducto {
+    /* width: 290px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    justify-content: center;
+    gap: 10px;
 
 }
 
 .confirmarProductoImgPrincipal {
-    width: 220px;
-    height: 220px;
+    width: 210px;
+    height: 210px;
     border-radius: 10px;
 }
 
 .confirmarProductoImgMini {
-    width: 43px;
+    width: 40px;
+    height: 40px;
     border-radius: 5px;
 }
 
@@ -277,8 +291,8 @@
     justify-content: center;
     align-items: center;
     gap: 10px;
-    height: 220px;
-    overflow: scroll;
+    height: 210px;
+    overflow-y: scroll;
 }
 
 .confirmarProductoTalla{
