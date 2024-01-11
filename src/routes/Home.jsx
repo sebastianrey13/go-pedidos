@@ -6,6 +6,7 @@ import tennisImg from '../../public/categorias/tennis.png'
 import chaquetasImg from '../../public/categorias/chaquetas.png'
 import pantalonesImg from '../../public/categorias/pantalones.png'
 import shortsImg from '../../public/categorias/shorts.png'
+import Detalles from './Detalles'
 
 
 const Home = () => {
@@ -68,7 +69,6 @@ const Home = () => {
           />
         ))}
       </div>
-
     </div>
   )
 }

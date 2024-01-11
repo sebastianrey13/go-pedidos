@@ -10,7 +10,6 @@ import pantalonGris from '../../public/productos/pantalones/pantalon_gris.png'
 import pantalonMarron from '../../public/productos/pantalones/pantalon_marron.png'
 import pantalonRojo from '../../public/productos/pantalones/pantalon_rojo.png'
 
-
 const Pantalones = () => {
 
   const pantalones = [
@@ -19,6 +18,7 @@ const Pantalones = () => {
       nombre: 'Pantalones deportivos',
       ref: '#36LKN74A',
       precio: 150000,
+      descuento : 0.20,
       colores: [
         {
           id: 1,
@@ -52,10 +52,11 @@ const Pantalones = () => {
         }
       ]
     },{
-      id: 1,
+      id: 2,
       nombre: 'Pantalones deportivos',
       ref: '#36LKN74A',
       precio: 150000,
+      descuento : 0.30,
       colores: [
         {
           id: 1,
@@ -89,10 +90,11 @@ const Pantalones = () => {
         }
       ]
     },{
-      id: 1,
+      id: 3,
       nombre: 'Pantalones deportivos',
       ref: '#36LKN74A',
       precio: 150000,
+      descuento : 0.40,
       colores: [
         {
           id: 1,
@@ -127,10 +129,11 @@ const Pantalones = () => {
       ]
     },
     {
-      id: 1,
+      id: 4,
       nombre: 'Pantalones deportivos',
       ref: '#36LKN74A',
       precio: 150000,
+      descuento : 0.15,
       colores: [
         {
           id: 1,
@@ -165,10 +168,11 @@ const Pantalones = () => {
       ]
     },
     {
-      id: 1,
+      id: 5,
       nombre: 'Pantalones deportivos',
       ref: '#36LKN74A',
       precio: 150000,
+      descuento : 0.25,
       colores: [
         {
           id: 1,
@@ -203,10 +207,11 @@ const Pantalones = () => {
       ]
     },
     {
-      id: 1,
+      id: 6,
       nombre: 'Pantalones deportivos',
       ref: '#36LKN74A',
       precio: 150000,
+      descuento : 0.18,
       colores: [
         {
           id: 1,
@@ -241,10 +246,11 @@ const Pantalones = () => {
       ]
     },
     {
-      id: 1,
+      id: 7,
       nombre: 'Pantalones deportivos',
       ref: '#36LKN74A',
       precio: 150000,
+      descuento : 0.35,
       colores: [
         {
           id: 1,
@@ -279,10 +285,11 @@ const Pantalones = () => {
       ]
     },
     {
-      id: 1,
+      id: 8,
       nombre: 'Pantalones deportivos',
       ref: '#36LKN74A',
       precio: 150000,
+      descuento : 0.26,
       colores: [
         {
           id: 1,
@@ -317,10 +324,11 @@ const Pantalones = () => {
       ]
     },
     {
-      id: 1,
+      id: 9,
       nombre: 'Pantalones deportivos',
       ref: '#36LKN74A',
       precio: 150000,
+      descuento : 0.5,
       colores: [
         {
           id: 1,
@@ -355,10 +363,11 @@ const Pantalones = () => {
       ]
     },
     {
-      id: 1,
+      id: 10,
       nombre: 'Pantalones deportivos',
       ref: '#36LKN74A',
       precio: 150000,
+      descuento : 0.13,
       colores: [
         {
           id: 1,
@@ -403,6 +412,7 @@ const Pantalones = () => {
             nombre={pantalon.nombre}
             referencia={pantalon.referencia}
             precio={pantalon.precio}
+            descuento = {pantalon.descuento}
             id={pantalon.id}
             colores={pantalon.colores}
           />

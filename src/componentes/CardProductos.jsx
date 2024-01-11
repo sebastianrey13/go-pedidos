@@ -4,11 +4,6 @@ import '../css/cardCategoria.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
-import tennisImg1 from '../../public/productos/tennis/tenis_azules.png'
-// import tennisImg2 from '../../public/productos/tennis/tenis_grieses.png'
-// import tennisImg3 from '../../public/productos/tennis/tenis_naranjas.png'
-
-
 const CardProductos = (props) => {
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -18,6 +13,8 @@ const CardProductos = (props) => {
     const [isSelectColor, setIsSelectColor] = useState(true);
     const [imagenSeleccionada, setImagenSeleccionada] = useState(0);
     const [precioFormateado, setprecioFormateado] = useState(0);
+    const [porcetajeDescuento, setPorcentajeDescuento] = useState('');
+    const [precioFinal, setPreciofinal] = useState(0);
 
     const tallas = [
         {
@@ -65,17 +62,47 @@ const CardProductos = (props) => {
     };
 
     useEffect(() => {
-        formatearNumero(props.precio);
-    }, [props.precio]);
+        formatearPorcentaje(props.descuento);
+        precioConDescuento(props.precio, props.descuento);
+        setprecioFormateado(formatearNumero(props.precio));
+    }, [props.precio, props.descuento, precioFinal]);
 
-    function formatearNumero(precio) {
-        const partes = String(precio).split(/(?=(?:\d{3})+(?!\d))/);
-        const resultado = partes.join('.');
-        setprecioFormateado(resultado);
+    // const formatearNumero = (precio) => {
+    //     const partes = String(precio).split(/(?=(?:\d{3})+(?!\d))/);
+    //     const resultado = partes.join('.');
+    //     return resultado
+    // }
+
+    const formatearNumero = (precio) => {
+        // Redondear el número a dos decimales si es necesario
+        const precioRedondeado = Number.parseFloat(precio).toFixed(2);
+
+        // Separar los miles con punto y usar coma como separador decimal solo si hay decimales
+        const partes = precioRedondeado.split('.');
+        const parteEntera = partes[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+
+        // Verificar si hay parte decimal y añadirla con coma
+        const parteDecimal = partes[1] ? `,${partes[1]}` : '';
+
+        // Unir las partes y devolver el resultado
+        const resultado = parteEntera + parteDecimal;
+        return resultado;
     }
+
+    const formatearPorcentaje = (descuento) => {
+        const porcentaje = descuento * 100;
+        setPorcentajeDescuento(porcentaje)
+    }
+
+    const precioConDescuento = (precio, descuento) => {
+        const precioDescuento = precio - (precio * descuento);
+        setPreciofinal(formatearNumero(precioDescuento));
+    }
+
 
     return (
         <div className='cardProducto'>
+            <h2>{props.nombre}</h2>
             <div className='cardProductoDiv1'>
                 <img src={props.colores[imagenSeleccionada].img} alt="" />
                 <div className='cardProductoDiv1P'>
@@ -112,7 +139,12 @@ const CardProductos = (props) => {
                     )}
                 </div>
             </div>
-            <p>{`$${precioFormateado}`}</p>
+            <p className='cardProductoRef'><span>Ref: </span>{props.referencia}</p>
+            <div className='cardProductoPrecios'>
+                <p className='cardProductoDescuento'>-{porcetajeDescuento}%</p>
+                <p className='cardProductoPrecioNeto'>{`$${precioFormateado}`}</p>
+            </div>
+            <p className='cardProductoPrecioFinal'>${precioFinal}</p>
             {isSelectColor ?
                 (
                     <p className='cardProducto-masColores' onClick={toggleSelectcolor}>Más Colores +</p>

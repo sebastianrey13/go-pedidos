@@ -51,8 +51,47 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 275px;
-    gap: 12px;
+    height: 340px;
+    gap: 8px;
+}
+
+.cardProducto h2{
+    width: 150px;
+    height: 30px;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.cardProductoRef{
+    color: #888888;
+    font-size: 12px;
+}
+
+.cardProductoRef span{
+    color: #333333;
+    font-weight: bold;
+}
+
+.cardProductoDescuento{
+    font-size: 11px;
+    color: #ff0000;
+}
+
+.cardProductoPrecios{
+    display: flex;
+}
+
+.cardProductoPrecioNeto{
+    font-size: 12px;
+    text-decoration: line-through;
+    margin-left: 10px;
+    color: #333333;
+}
+
+.cardProductoPrecioFinal{
+    font-size: 15px;
 }
 
 .cardProductoDiv1 {

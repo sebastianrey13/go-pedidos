@@ -16,6 +16,7 @@ const Chaquetas = () => {
       nombre: 'Chaquetas Deportivas',
       ref: '#967WENFIUH',
       precio: 150000,
+      descuento : 0.25,
       colores: [
         {
           id: 1,
@@ -39,6 +40,7 @@ const Chaquetas = () => {
       nombre: 'Chaquetas Deportivas',
       ref: '#967WENFIUH',
       precio: 150000,
+      descuento : 0.12,
       colores: [
         {
           id: 1,
@@ -68,6 +70,7 @@ const Chaquetas = () => {
             nombre={chaqueta.nombre}
             referencia={chaqueta.referencia}
             precio={chaqueta.precio}
+            descuento = {chaqueta.descuento}
             id={chaqueta.id}
             colores={chaqueta.colores}
           />
