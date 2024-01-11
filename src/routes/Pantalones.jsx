@@ -15,7 +15,7 @@ const Pantalones = () => {
   const pantalones = [
     {
       id: 1,
-      nombre: 'Pantalones deportivos',
+      nombre: 'Pantalones Deportivos',
       ref: '#36LKN74A',
       precio: 150000,
       descuento : 0.20,
@@ -53,7 +53,7 @@ const Pantalones = () => {
       ]
     },{
       id: 2,
-      nombre: 'Pantalones deportivos',
+      nombre: 'Pantalones Deportivos',
       ref: '#36LKN74A',
       precio: 150000,
       descuento : 0.30,
@@ -410,7 +410,7 @@ const Pantalones = () => {
           <CardProductos
             key={index + 1}
             nombre={pantalon.nombre}
-            referencia={pantalon.referencia}
+            referencia={pantalon.ref}
             precio={pantalon.precio}
             descuento = {pantalon.descuento}
             id={pantalon.id}

@@ -3,6 +3,11 @@ import { useState } from 'react';
 import '../css/cardCategoria.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import cerrar from '../../public/cerrar.png'
+import botonMenos from '../../public/boton-menos.png'
+import botonMas from '../../public/boton-mas.png'
+
+
 
 const CardProductos = (props) => {
 
@@ -15,6 +20,8 @@ const CardProductos = (props) => {
     const [precioFormateado, setprecioFormateado] = useState(0);
     const [porcetajeDescuento, setPorcentajeDescuento] = useState('');
     const [precioFinal, setPreciofinal] = useState(0);
+    const [unidades, setUnidades] = useState(0);
+    const [isConfimarAñadirProducto, setIsConfirmarAñadirProducto] = useState(false);
 
     const tallas = [
         {
@@ -99,6 +106,25 @@ const CardProductos = (props) => {
         setPreciofinal(formatearNumero(precioDescuento));
     }
 
+    const contadorMas = () => {
+        setUnidades(unidades + 1)
+    }
+
+    const contadorMenos = () => {
+        if (unidades > 0) {
+            setUnidades(unidades - 1)
+        }
+    }
+
+    const mostrarConfirmarProducto = () => {
+        setIsConfirmarAñadirProducto(true);
+    }
+
+    const ocultarConfirmarProducto = () => {
+        setIsConfirmarAñadirProducto(false);
+    }
+
+
 
     return (
         <div className='cardProducto'>
@@ -109,6 +135,7 @@ const CardProductos = (props) => {
                     {isAñadir ? (
                         <p
                             className='pAñadir'
+                            onClick={mostrarConfirmarProducto}
                         >
                             Añadir
                         </p>
@@ -141,8 +168,8 @@ const CardProductos = (props) => {
             </div>
             <p className='cardProductoRef'><span>Ref: </span>{props.referencia}</p>
             <div className='cardProductoPrecios'>
-                <p className='cardProductoDescuento'>-{porcetajeDescuento}%</p>
                 <p className='cardProductoPrecioNeto'>{`$${precioFormateado}`}</p>
+                <p className='cardProductoDescuento'>-{porcetajeDescuento}%</p>
             </div>
             <p className='cardProductoPrecioFinal'>${precioFinal}</p>
             {isSelectColor ?
@@ -162,7 +189,86 @@ const CardProductos = (props) => {
                         ))}
                     </div>
                 )}
+
+            {isConfimarAñadirProducto && (
+
+                <div className='popup-bg-confirmarProducto'>
+
+                    <div className='popup-confirmarProducto'>
+                        <img onClick={ocultarConfirmarProducto} className="confirmarProducto-close-button-img" src={cerrar} alt="Cerrar" />
+                        <h2>{props.nombre}</h2>
+
+                        <div className='confirmarProducto'>
+                            <div>
+                                <img className='confirmarProductoImgPrincipal' src={props.colores[imagenSeleccionada].img} alt="" />
+                            </div>
+
+                            <div className='confirmarProductoImgSecundarias'>
+                                {props.colores.map((color, index) => (
+                                    <img
+                                        className={`coloresProductos confirmarProductoImgMini ${selectedColorIndex === index ? 'selected' : ''}`}
+                                        key={index + 1}
+                                        id={color.id}
+                                        src={color.img}
+                                        alt=""
+                                        onClick={() => handleColorClick(index)}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+
+                        <div>
+                            <div
+                                className={`iconoDeTallas-ConfirmarProducto`}
+                            >
+                                <p onClick={toggleDropdown} className='confirmarProductoTalla'>
+                                    {tallaSeleccionada === '' ? 'Seleccione una talla' : tallaSeleccionada}
+                                </p>
+                                <FontAwesomeIcon
+                                    className='confirmarPedidoDesplegarTalla'
+                                    icon={desplegarTallas ? faAngleDown : faAngleUp}
+                                    onClick={toggleDropdown}
+                                />
+                                {isDropdownOpen && (
+                                    <ul className="dropdown-list-confirmarProducto">
+                                        {tallas.map((talla, index) => (
+                                            <li
+                                                onClick={() => seleccionarTalla(talla.talla)}
+                                                key={index + 1}>
+                                                {talla.talla}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
+                            <div className='confirmarProducto-informacionExtra'>
+                                <p className='cardProductoRef'><span>REF: </span>{props.referencia}</p>
+                                <p className='cardProductoRef cardProductoDetalle'><span>Detalle: </span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolorem debitis aut nesciunt cumque cum molestias harum, inventore ipsa odit nihil rem sequi laboriosam iusto quia libero sed earum facilis.
+
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolorem debitis aut nesciunt cumque cum molestias harum, inventore ipsa odit nihil rem sequi laboriosam iusto quia libero sed earum facilis.
+
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolorem debitis aut nesciunt cumque cum molestias harum, inventore ipsa odit nihil rem sequi laboriosam iusto quia libero sed earum facilis.
+                                
+                                </p>
+                            </div>
+                            <div className='cantidad-agregar-confirmarProducto'>
+                                <div className='cantidad-confirmarProducto'>
+                                    <img onClick={contadorMenos} className='botonUnidades-confirmarProducto' src={botonMenos} alt="" />
+                                    <p>{unidades}</p>
+                                    <img onClick={contadorMas} className='botonUnidades-confirmarProducto' src={botonMas} alt="" />
+
+                                </div>
+                                <div className='agregar-confirmarProducto'>
+                                    <p>Agregar al Carro</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            )}
         </div>
+
     )
 }
 

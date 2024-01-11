@@ -158,7 +158,7 @@ const Shorts = () => {
           <CardProductos
             key={index + 1}
             nombre={short.nombre}
-            referencia={short.referencia}
+            referencia={short.ref}
             descuento = {short.descuento}
             precio={short.precio}
             id={short.id}

@@ -68,7 +68,7 @@ const Chaquetas = () => {
           <CardProductos
             key={index + 1}
             nombre={chaqueta.nombre}
-            referencia={chaqueta.referencia}
+            referencia={chaqueta.ref}
             precio={chaqueta.precio}
             descuento = {chaqueta.descuento}
             id={chaqueta.id}
