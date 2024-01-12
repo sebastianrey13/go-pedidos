@@ -156,7 +156,7 @@ const Tennis = () => {
 
 
   return (
-    <div>
+    <div className='home'>
       <div className='homeCardCategorias'>
         {tennis.map((tenni, index) => (
           <CardProductos

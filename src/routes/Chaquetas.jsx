@@ -62,7 +62,7 @@ const Chaquetas = () => {
   ]
 
   return (
-    <div>
+    <div className='home'>
       <div className='homeCardCategorias'>
         {chaquetas.map((chaqueta, index) => (
           <CardProductos

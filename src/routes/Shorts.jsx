@@ -152,7 +152,7 @@ const Shorts = () => {
   ]
 
   return (
-    <div>
+    <div className='home'>
       <div className='homeCardCategorias'>
         {shorts.map((short, index) => (
           <CardProductos

@@ -1,15 +1,19 @@
-import React, { useEffect } from 'react'
-import { useState } from 'react';
+import React from 'react'
+import { useState, useEffect, useRef } from 'react';
 import '../css/cardCategoria.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import cerrar from '../../public/cerrar.png'
 import botonMenos from '../../public/boton-menos.png'
 import botonMas from '../../public/boton-mas.png'
+import Swal from 'sweetalert2'
 
 
 
 const CardProductos = (props) => {
+
+    const cardProductosRef = useRef(null);
+    const cardAñadirProductosRef = useRef(null);
 
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [desplegarTallas, setDesplegarTallas] = useState(false);
@@ -17,11 +21,16 @@ const CardProductos = (props) => {
     const [isAñadir, setIsAñadir] = useState(false);
     const [isSelectColor, setIsSelectColor] = useState(true);
     const [imagenSeleccionada, setImagenSeleccionada] = useState(0);
-    const [precioFormateado, setprecioFormateado] = useState(0);
+    const [precio, setPrecio] = useState(0);
     const [porcetajeDescuento, setPorcentajeDescuento] = useState('');
     const [precioFinal, setPreciofinal] = useState(0);
-    const [unidades, setUnidades] = useState(0);
+    const [unidades, setUnidades] = useState(1);
     const [isConfimarAñadirProducto, setIsConfirmarAñadirProducto] = useState(false);
+    const [isDropdownOpenAñadir, setIsDropdownOpenAñadir] = useState(false);
+    const [desplegarTallasAñadir, setDesplegarTallasAñadir] = useState(false);
+
+    const [precioAñadir, setprecioAñadir] = useState(0);
+    const [precioFinalAñadir, setPreciofinalAñadir] = useState(0);
 
     const tallas = [
         {
@@ -51,6 +60,11 @@ const CardProductos = (props) => {
         setDesplegarTallas(!desplegarTallas);
     };
 
+    const toggleDropdownAñadir = () => {
+        setIsDropdownOpenAñadir(!isDropdownOpenAñadir);
+        setDesplegarTallasAñadir(!desplegarTallasAñadir);
+    };
+
     const cerrarDropdown = () => {
         setIsDropdownOpen(false);
         setDesplegarTallas(false);
@@ -76,14 +90,47 @@ const CardProductos = (props) => {
     useEffect(() => {
         formatearPorcentaje(props.descuento);
         precioConDescuento(props.precio, props.descuento);
-        setprecioFormateado(formatearNumero(props.precio));
+        setPrecio(props.precio);
     }, [props.precio, props.descuento, precioFinal]);
 
-    // const formatearNumero = (precio) => {
-    //     const partes = String(precio).split(/(?=(?:\d{3})+(?!\d))/);
-    //     const resultado = partes.join('.');
-    //     return resultado
-    // }
+    const handleClickOutside = (event) => {
+        if (cardProductosRef.current && !cardProductosRef.current.contains(event.target)) {
+            setIsDropdownOpen(false);
+            setDesplegarTallas(false);
+        }
+    };
+
+    useEffect(() => {
+        // Agregar un event listener al montar el componente
+        document.addEventListener('click', handleClickOutside);
+
+        // Limpiar el event listener al desmontar el componente
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+        };
+    }, []);
+
+
+    const handleClickOutsideAñádir = (event) => {
+        if (cardAñadirProductosRef.current && !cardAñadirProductosRef.current.contains(event.target)) {
+            setIsDropdownOpenAñadir(false);
+            setDesplegarTallasAñadir(false);
+        }
+    };
+
+    useEffect(() => {
+        // Agregar un event listener al montar el componente para el desplegable principal
+        document.addEventListener('click', handleClickOutside);
+
+        // Agregar un event listener al montar el componente para el desplegable de Añadir Producto
+        document.addEventListener('click', handleClickOutsideAñádir);
+
+        // Limpiar el event listener al desmontar el componente
+        return () => {
+            document.removeEventListener('click', handleClickOutside);
+            document.removeEventListener('click', handleClickOutsideAñádir);
+        };
+    }, []);
 
     const formatearNumero = (precio) => {
         // Redondear el número a dos decimales si es necesario
@@ -113,14 +160,36 @@ const CardProductos = (props) => {
 
     const contadorMas = () => {
         setUnidades(unidades + 1)
+        calcularPrecio
     }
 
     const contadorMenos = () => {
         if (unidades > 0) {
             setUnidades(unidades - 1)
+            calcularPrecio
         }
     }
 
+    const setValorCantidadManual = (e) => {
+        const inputValue = e.target.value;
+        // Verificar si el valor ingresado es un número o está vacío
+        if (/^\d*$/.test(inputValue) || inputValue === '') {
+            setUnidades(inputValue === '' ? 0 : parseInt(inputValue, 10));
+        }
+    }
+
+    const soloNumeros = (e) => {
+        const validKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+
+        // Permitir la tecla de borrar (Backspace)
+        if (e.key === 'Backspace') {
+            return;
+        }
+
+        if (!validKeys.includes(e.key)) {
+            e.preventDefault();
+        }
+    }
     const mostrarConfirmarProducto = () => {
         setIsConfirmarAñadirProducto(true);
     }
@@ -130,12 +199,61 @@ const CardProductos = (props) => {
     }
 
 
+    /* Codigo para en la confirmacion del producto a añadir se aumente el valor en base a las unidades */
+
+    useEffect(() => {
+        const precioNeto = calcularPrecio(props.precio);
+        calcularPrecioConDescuento(precioNeto);
+    }, [unidades, props.precio, precioAñadir, props.descuento]);
+
+    const calcularPrecio = (precio) => {
+        const valorNeto = precio * unidades;
+        setprecioAñadir(valorNeto);
+        return valorNeto; // Devuelve el valor calculado para su uso posterior
+    }
+
+    const calcularPrecioConDescuento = (precioNeto) => {
+        const valorDescuento = precioNeto - (precioNeto * props.descuento);
+        setPreciofinalAñadir(valorDescuento);
+    }
+
+
+    /* Confirmar Producto */
+
+    const confirmarProducto = () => {
+
+        const productroConfirmado = {
+            nombre: props.nombre,
+            referencia: props.referencia,
+            descuento: props.descuento,
+            talla: tallaSeleccionada,
+            img: props.colores[imagenSeleccionada].img,
+            color: props.colores[imagenSeleccionada].color,
+            precio: props.precio,
+            unidades: unidades,
+        }
+
+        ocultarConfirmarProducto();
+
+        Swal.fire({
+            title: 'Go Pedidos',
+            text: '¿Añadir producto al carrito?',
+            icon: 'question',
+            showCancelButton: true,
+            showDenyButton: true,
+            // confirmButtonText : 'boton confirmar',
+            confirmButtonColor : '#009b3e'
+         })
+    }
+
+
+
     return (
-        <div className='cardProducto'>
+        <div className='cardProducto' >
             <h2>{props.nombre}</h2>
             <div className='cardProductoDiv1'>
                 <img onClick={mostrarConfirmarProducto} src={props.colores[imagenSeleccionada].img} alt="" />
-                <div className='cardProductoDiv1P'>
+                <div className='cardProductoDiv1P' ref={cardProductosRef}>
                     {isAñadir ? (
                         <p
                             className='pAñadir'
@@ -172,7 +290,7 @@ const CardProductos = (props) => {
             </div>
             <p className='cardProductoRef'><span>Ref: </span>{props.referencia}</p>
             <div className='cardProductoPrecios'>
-                <p className='cardProductoPrecioNeto'>{`$${precioFormateado}`}</p>
+                <p className='cardProductoPrecioNeto'>{`$${formatearNumero(precio)}`}</p>
                 <p className='cardProductoDescuento'>-{porcetajeDescuento}%</p>
             </div>
             <p className='cardProductoPrecioFinal'>${precioFinal}</p>
@@ -225,15 +343,19 @@ const CardProductos = (props) => {
                             <div
                                 className={`iconoDeTallas-ConfirmarProducto`}
                             >
-                                <p onClick={toggleDropdown} className='confirmarProductoTalla'>
+                                <p
+                                    ref={cardAñadirProductosRef}
+                                    onClick={toggleDropdownAñadir}
+                                    className='confirmarProductoTalla'
+                                >
                                     {tallaSeleccionada === '' ? 'Seleccione una talla' : tallaSeleccionada}
                                 </p>
                                 <FontAwesomeIcon
                                     className='confirmarPedidoDesplegarTalla'
-                                    icon={desplegarTallas ? faAngleDown : faAngleUp}
-                                    onClick={toggleDropdown}
+                                    icon={desplegarTallasAñadir ? faAngleDown : faAngleUp}
+                                    onClick={toggleDropdownAñadir}
                                 />
-                                {isDropdownOpen && (
+                                {isDropdownOpenAñadir && (
                                     <ul className="dropdown-list-confirmarProducto">
                                         {tallas.map((talla, index) => (
                                             <li
@@ -245,6 +367,24 @@ const CardProductos = (props) => {
                                     </ul>
                                 )}
                             </div>
+                            <div className='preciosAñadirProducto'>
+                                <div className='cantidad-confirmarProducto'>
+                                    <img onClick={contadorMenos} className='botonUnidades-confirmarProducto' src={botonMenos} alt="" />
+                                    <input
+                                        value={unidades}
+                                        onChange={setValorCantidadManual}
+                                        onKeyDown={soloNumeros}
+                                    />
+                                    <img onClick={contadorMas} className='botonUnidades-confirmarProducto' src={botonMas} alt="" />
+                                </div>
+                                <div>
+                                    <div className='cardProductoPrecios'>
+                                        <p className='cardProductoPrecioNeto'>{`$${formatearNumero(precioAñadir)}`}</p>
+                                        <p className='cardProductoDescuento'>-{porcetajeDescuento}%</p>
+                                    </div>
+                                    <p className='cardProductoPrecioFinal'>${formatearNumero(precioFinalAñadir)}</p>
+                                </div>
+                            </div>
                             <div className='confirmarProducto-informacionExtra'>
                                 <p className='cardProductoRef'><span>REF: </span>{props.referencia}</p>
                                 <p className='cardProductoRef cardProductoDetalle'><span>Detalle: </span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolorem debitis aut nesciunt cumque cum molestias harum, inventore ipsa odit nihil rem sequi laboriosam iusto quia libero sed earum facilis.
@@ -255,17 +395,24 @@ const CardProductos = (props) => {
 
                                 </p>
                             </div>
-                            <div className='cantidad-agregar-confirmarProducto'>
-                                <div className='cantidad-confirmarProducto'>
-                                    <img onClick={contadorMenos} className='botonUnidades-confirmarProducto' src={botonMenos} alt="" />
-                                    <p>{unidades}</p>
-                                    <img onClick={contadorMas} className='botonUnidades-confirmarProducto' src={botonMas} alt="" />
+                        </div>
+                        {/* <div className='cantidad-agregar-confirmarProducto'>
+                            <div className='cantidad-confirmarProducto'>
+                                <img onClick={contadorMenos} className='botonUnidades-confirmarProducto' src={botonMenos} alt="" />
+                                <input
+                                    value={unidades}
+                                    onChange={setValorCantidadManual}
+                                    onKeyDown={soloNumeros}
+                                />
+                                <img onClick={contadorMas} className='botonUnidades-confirmarProducto' src={botonMas} alt="" />
 
-                                </div>
-                                <div className='agregar-confirmarProducto'>
-                                    <p>Agregar al Carro</p>
-                                </div>
                             </div>
+                            <div className='agregar-confirmarProducto'>
+                                <p>Agregar al Carro</p>
+                            </div>
+                            </div> */}
+                        <div className='agregar-confirmarProducto'>
+                            <p onClick={confirmarProducto}>Agregar al Carro</p>
                         </div>
                     </div>
 

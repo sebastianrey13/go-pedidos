@@ -59,7 +59,7 @@ const Home = () => {
 
 
   return (
-    <div>
+    <div className='home'>
       <div className='homeCardCategorias'>
         {categorias.map((props, index) => (
           <CardCategoria

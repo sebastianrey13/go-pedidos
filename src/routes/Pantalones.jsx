@@ -404,7 +404,7 @@ const Pantalones = () => {
   ]
 
   return (
-    <div>
+    <div className='home'>
       <div className='homeCardCategorias'>
         {pantalones.map((pantalon, index) => (
           <CardProductos
