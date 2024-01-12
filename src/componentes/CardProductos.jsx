@@ -7,6 +7,7 @@ import cerrar from '../../public/cerrar.png'
 import botonMenos from '../../public/boton-menos.png'
 import botonMas from '../../public/boton-mas.png'
 import Swal from 'sweetalert2'
+import CardError from './CardError'
 
 
 
@@ -31,6 +32,7 @@ const CardProductos = (props) => {
 
     const [precioAñadir, setprecioAñadir] = useState(0);
     const [precioFinalAñadir, setPreciofinalAñadir] = useState(0);
+    const [mensajeError, setMensajeError] = useState('');
 
     const tallas = [
         {
@@ -196,6 +198,7 @@ const CardProductos = (props) => {
 
     const ocultarConfirmarProducto = () => {
         setIsConfirmarAñadirProducto(false);
+        setMensajeError('');
     }
 
 
@@ -233,17 +236,37 @@ const CardProductos = (props) => {
             unidades: unidades,
         }
 
-        ocultarConfirmarProducto();
+        if (tallaSeleccionada === '') {
+            setMensajeError('Por favor seleccione una talla');
+        } else {
 
-        Swal.fire({
-            title: 'Go Pedidos',
-            text: '¿Añadir producto al carrito?',
-            icon: 'question',
-            showCancelButton: true,
-            showDenyButton: true,
-            // confirmButtonText : 'boton confirmar',
-            confirmButtonColor : '#009b3e'
-         })
+            ocultarConfirmarProducto();
+
+            Swal.fire({
+                title: 'Go Pedidos',
+                text: '¿Añadir producto al carrito?',
+                icon: 'question',
+                showDenyButton: true,
+                confirmButtonText: 'Si',
+                confirmButtonColor: '#009b3e'
+            }).then((respuesta) => {
+                if (respuesta.isConfirmed) {
+                    Swal.fire({
+                        title: 'Go Pedidos',
+                        text: `${props.nombre} ha sido añadido al carrito de compras`,
+                        icon: 'success',
+                        confirmButtonColor: '#009b3e',
+                    })
+                } else if (respuesta.isDenied) {
+                    mostrarConfirmarProducto()
+                }
+            })
+
+        }
+
+
+
+        console.log(productroConfirmado)
     }
 
 
@@ -394,6 +417,9 @@ const CardProductos = (props) => {
                                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam dolorem debitis aut nesciunt cumque cum molestias harum, inventore ipsa odit nihil rem sequi laboriosam iusto quia libero sed earum facilis.
 
                                 </p>
+                                < CardError
+                                    info={mensajeError}
+                                />
                             </div>
                         </div>
                         {/* <div className='cantidad-agregar-confirmarProducto'>

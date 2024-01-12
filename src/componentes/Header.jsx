@@ -8,8 +8,10 @@ import SingUp from './SingUp';
 
 import iconoBlanco from '../../public/icono_blanco.png'
 import usuario from '../../public/usuario.png'
+// import usuario from '../../public/iconousuario.svg'
 import MenuMobile from '../componentes/MenuMobile.jsx';
-
+import CarroDeCompras from '../componentes/CarroDeCompras.jsx';
+import BuscarProducto from '../componentes/BuscarProducto.jsx';
 
 const Header = () => {
 
@@ -34,12 +36,18 @@ const Header = () => {
     return (
         <div className='header'>
             <div className='header-contenido'>
-                <Link to='/home'><img className='header-img-iconos' src={iconoBlanco} alt="icono-blanco" /></Link>
-                <h1 className='header-h1'>Go Pedidos</h1>
-            </div>
-            <div className='header-contenido header-contenido-2'>
-                <img onClick={abrirLoginPopup} className='header-img-iconos' src={usuario} alt="usuario" />
                 <MenuMobile />
+                <Link to='/home'><img className='header-img-iconos' src={iconoBlanco} alt="icono-blanco" /></Link>
+                {/* <h1 className='header-h1'>GoPedidos</h1> */}
+            </div>
+            <div className='buscarProductoIco'>
+                <BuscarProducto />
+            </div>
+            <div className='header-contenido-2'>
+                <img onClick={abrirLoginPopup} className='header-img-iconos' src={usuario} alt="usuario" />
+                <p className='header-contenido-2-p'>|</p>
+                <CarroDeCompras />
+                <p className='header-contenido-2-p numeroProductosCarro'>15</p>
             </div>
 
             {isLoginPopupOpen && (
