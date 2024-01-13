@@ -35,10 +35,6 @@ const CardProductos = (props) => {
     const [precioFinalAñadir, setPreciofinalAñadir] = useState(0);
     const [mensajeError, setMensajeError] = useState('');
 
-    // const [objetosArray, setObjetosArray] = useState(
-    //     JSON.parse(localStorage.getItem('objetosArray')) || []
-    //   );
-
     const tallas = [
         {
             id: 1,
@@ -239,10 +235,15 @@ const CardProductos = (props) => {
         sessionStorage.setItem('productosEnCarrito', JSON.stringify(productosEnCarrito));
     };
 
+
+    const generarIdUnico = () => {
+        return Math.random().toString(36).substr(2, 9);
+    }
+
     const confirmarProducto = () => {
 
         const productoConfirmado = {
-            id: props.id,
+            id: generarIdUnico(),
             nombre: props.nombre,
             referencia: props.referencia,
             descuento: props.descuento,
@@ -275,7 +276,14 @@ const CardProductos = (props) => {
                         confirmButtonColor: '#009b3e',
                     })
                     guardarEnSessionStorage(productoConfirmado);
+                    /* se resetean valores de la card */
                     recargarProductos();
+                    setTallaSeleccionada('');
+                    setUnidades(1);
+                    setIsAñadir(false);
+                    setImagenSeleccionada(0);
+                    setSelectedColorIndex(0);
+
                 } else if (respuesta.isDenied) {
                     mostrarConfirmarProducto()
                 }

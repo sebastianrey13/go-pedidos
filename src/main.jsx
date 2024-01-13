@@ -10,6 +10,7 @@ import Pantalones from './routes/Pantalones.jsx'
 import Shorts from './routes/Shorts.jsx'
 import Chaquetas from './routes/Chaquetas.jsx'
 import Productos from './routes/Productos.jsx'
+import Historial from './routes/Historial.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -24,6 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
           <Route path='/productos/pantalones' element={<Pantalones/>}/>
           <Route path='/productos/shorts' element={<Shorts/>}/>
           <Route path='/productos/chaquetas' element={<Chaquetas/>}/>
+          <Route path='/historial' element={<Historial/>}/>
         </Route>
       </Routes>
     </BrowserRouter>

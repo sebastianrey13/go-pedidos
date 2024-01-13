@@ -15,12 +15,33 @@
     width: 25px;
 }
 
+.cestaVacia{
+    width: 350px;
+    height: 50px;
+    margin: auto;
+    margin-top: 20px;
+    background-color: #b1ffd0;
+    border-radius: 5px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: bold;
+    color: #555555;
+}
+
 .popupCard {
     height: 100%;
-    width: 100%;
+    width: auto;
     padding: 0px;
     background-color: #ffffff;
     z-index: 200;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .popup-bg-card {
@@ -28,19 +49,20 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 1000000px;
-    /* display: flex; */
-    /* flex-direction: column; */
-    /* justify-content: start; */
-    /* align-items: flex-start; */
-    /* background: rgba(0, 0, 0, 0.5); */
+    /* height: 1000px; */
+    height: 100vh;
     z-index: 10;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    background: rgba(0, 0, 0, 0.5);
 }
 
 .carroComprasContainer1 {
-    height: 60px;
+    height: 50px;
     width: 100%;
-    padding: 15px;
+    padding: 10px 15px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -58,6 +80,48 @@
     width: 30px;
     height: 30px;
 }
+
+.carroComprasContainer2 {
+    height: 70%;
+    overflow-y: auto;
+}
+
+.carroComprasContainer3{
+    display: flex;
+    flex-direction: column;
+    font-size: 15px;
+    width: 375px;
+    height: 100px;
+    justify-content: space-evenly;
+    font-weight: bold;
+    padding: 10px;
+    
+}
+
+.carroComprasContainer3 div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+.carroComprasContainer3-Descuento{
+    color: #ff0000;
+}
+
+.popupCard button{
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    margin: auto;
+    margin-bottom: 15px;
+    background-color: #008536;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+
 
 
 /* Card Producto Carro */
@@ -81,18 +145,18 @@
 }
 
 .cardProductoCarroContainer2 {
-    width: 190px;
+    width: 180px;
     font-size: 12px;
     display: flex;
     flex-direction: column;
     gap: 2px;
 }
 
-.cardProductoCarroContainer2 p{
+.cardProductoCarroContainer2 p {
     color: #777777;
 }
 
-.cardProductoCarroContainer2 h3{
+.cardProductoCarroContainer2 h3 {
     margin-bottom: 5px;
 }
 
@@ -111,6 +175,6 @@
     font-weight: bold;
 }
 
-.CardProducoCarroPrecioPapeleraIco{
+.CardProducoCarroPrecioPapeleraIco {
     width: 20px;
 }

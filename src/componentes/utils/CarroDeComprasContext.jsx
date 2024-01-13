@@ -35,8 +35,28 @@ const CarroDeComprasProvider = ({ children }) => {
         setObjetosArray(nuevoArray);
     };
 
+    const calcularPrecioCesta = () => {
+        let suma = 0;
+        for (let i = 0; i < objetosArray.length; i++) {
+            suma = suma + (objetosArray[i].precio * objetosArray[i].unidades);
+        }
+        return suma
+    }
+
+    const calcularDescuentoCesta = () => {
+        let suma = 0;
+        for (let i = 0; i < objetosArray.length; i++) {
+            suma = suma + ((objetosArray[i].precio * objetosArray[i].unidades) * objetosArray[i].descuento);
+        }
+        return suma
+    }
+
+
+
+
+
     return (
-        <CarroDeComprasContext.Provider value={{ objetosArray, recargarProductos, eliminarObjetoArray }}>
+        <CarroDeComprasContext.Provider value={{ objetosArray, recargarProductos, eliminarObjetoArray ,calcularPrecioCesta, calcularDescuentoCesta }}>
             {children}
         </CarroDeComprasContext.Provider>
     )
