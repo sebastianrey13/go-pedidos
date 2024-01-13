@@ -1,5 +1,6 @@
 import React from 'react'
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, useContext } from 'react';
+import { CarroDeComprasContext } from './utils/CarroDeComprasContext';
 import '../css/cardCategoria.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
@@ -15,7 +16,7 @@ const CardProductos = (props) => {
 
     const cardProductosRef = useRef(null);
     const cardAñadirProductosRef = useRef(null);
-
+    const { recargarProductos } = useContext(CarroDeComprasContext);
     const [isDropdownOpen, setIsDropdownOpen] = useState(false);
     const [desplegarTallas, setDesplegarTallas] = useState(false);
     const [tallaSeleccionada, setTallaSeleccionada] = useState('');
@@ -33,6 +34,10 @@ const CardProductos = (props) => {
     const [precioAñadir, setprecioAñadir] = useState(0);
     const [precioFinalAñadir, setPreciofinalAñadir] = useState(0);
     const [mensajeError, setMensajeError] = useState('');
+
+    // const [objetosArray, setObjetosArray] = useState(
+    //     JSON.parse(localStorage.getItem('objetosArray')) || []
+    //   );
 
     const tallas = [
         {
@@ -223,9 +228,21 @@ const CardProductos = (props) => {
 
     /* Confirmar Producto */
 
+    const guardarEnSessionStorage = (producto) => {
+        // Obtener el array almacenado en el Local Storage o usar un array vacío por defecto
+        const productosEnCarrito = JSON.parse(sessionStorage.getItem('productosEnCarrito')) || [];
+
+        // Agregar el nuevo producto al array
+        productosEnCarrito.push(producto);
+
+        // Guardar el array actualizado en el Local Storage
+        sessionStorage.setItem('productosEnCarrito', JSON.stringify(productosEnCarrito));
+    };
+
     const confirmarProducto = () => {
 
-        const productroConfirmado = {
+        const productoConfirmado = {
+            id: props.id,
             nombre: props.nombre,
             referencia: props.referencia,
             descuento: props.descuento,
@@ -257,6 +274,8 @@ const CardProductos = (props) => {
                         icon: 'success',
                         confirmButtonColor: '#009b3e',
                     })
+                    guardarEnSessionStorage(productoConfirmado);
+                    recargarProductos();
                 } else if (respuesta.isDenied) {
                     mostrarConfirmarProducto()
                 }
@@ -266,7 +285,6 @@ const CardProductos = (props) => {
 
 
 
-        console.log(productroConfirmado)
     }
 
 

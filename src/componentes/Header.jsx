@@ -8,7 +8,6 @@ import SingUp from './SingUp';
 
 import iconoBlanco from '../../public/icono_blanco.png'
 import usuario from '../../public/usuario.png'
-// import usuario from '../../public/iconousuario.svg'
 import MenuMobile from '../componentes/MenuMobile.jsx';
 import CarroDeCompras from '../componentes/CarroDeCompras.jsx';
 import BuscarProducto from '../componentes/BuscarProducto.jsx';
@@ -47,7 +46,6 @@ const Header = () => {
                 <img onClick={abrirLoginPopup} className='header-img-iconos' src={usuario} alt="usuario" />
                 <p className='header-contenido-2-p'>|</p>
                 <CarroDeCompras />
-                <p className='header-contenido-2-p numeroProductosCarro'>15</p>
             </div>
 
             {isLoginPopupOpen && (

@@ -29,7 +29,7 @@ const Shorts = () => {
 
   const shorts = [
     {
-      id: 1,
+      id: 13,
       nombre: 'Shorts Deportivos',
       ref: '#3274AfD',
       precio: 89900,
@@ -63,7 +63,7 @@ const Shorts = () => {
       ]
     },
     {
-      id: 2,
+      id: 14,
       nombre: 'Short Dama Tejido',
       ref: '#0316216KD',
       precio: 32999,
@@ -97,7 +97,7 @@ const Shorts = () => {
       ]
     },
     {
-      id: 3,
+      id: 15,
       nombre: 'Short Hombre Tejido',
       ref: '#12SD4E512',
       precio: 61990,
@@ -126,7 +126,7 @@ const Shorts = () => {
       ]
     },
     {
-      id: 4,
+      id: 16,
       nombre: 'Short Made For Training',
       ref: '#SMFT74ASAMBAD',
       precio: 91999,

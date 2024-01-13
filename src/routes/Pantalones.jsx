@@ -14,7 +14,7 @@ const Pantalones = () => {
 
   const pantalones = [
     {
-      id: 1,
+      id: 3,
       nombre: 'Pantalones Deportivos',
       ref: '#36LKN74A',
       precio: 150000,
@@ -52,7 +52,7 @@ const Pantalones = () => {
         }
       ]
     },{
-      id: 2,
+      id: 4,
       nombre: 'Pantalones Deportivos',
       ref: '#36LKN74A',
       precio: 150000,
@@ -90,7 +90,7 @@ const Pantalones = () => {
         }
       ]
     },{
-      id: 3,
+      id: 5,
       nombre: 'Pantalones Deportivos',
       ref: '#36LKN74A',
       precio: 150000,
@@ -129,7 +129,7 @@ const Pantalones = () => {
       ]
     },
     {
-      id: 4,
+      id: 6,
       nombre: 'Pantalones Deportivos',
       ref: '#36LKN74A',
       precio: 150000,
@@ -168,7 +168,7 @@ const Pantalones = () => {
       ]
     },
     {
-      id: 5,
+      id: 7,
       nombre: 'Pantalones Deportivos',
       ref: '#36LKN74A',
       precio: 150000,
@@ -207,7 +207,7 @@ const Pantalones = () => {
       ]
     },
     {
-      id: 6,
+      id: 8,
       nombre: 'Pantalones Deportivos',
       ref: '#36LKN74A',
       precio: 150000,
@@ -246,7 +246,7 @@ const Pantalones = () => {
       ]
     },
     {
-      id: 7,
+      id: 9,
       nombre: 'Pantalones Deportivos',
       ref: '#36LKN74A',
       precio: 150000,
@@ -285,7 +285,7 @@ const Pantalones = () => {
       ]
     },
     {
-      id: 8,
+      id: 10,
       nombre: 'Pantalones Deportivos',
       ref: '#36LKN74A',
       precio: 150000,
@@ -324,7 +324,7 @@ const Pantalones = () => {
       ]
     },
     {
-      id: 9,
+      id: 11,
       nombre: 'Pantalones Deportivos',
       ref: '#36LKN74A',
       precio: 150000,
@@ -363,7 +363,7 @@ const Pantalones = () => {
       ]
     },
     {
-      id: 10,
+      id: 12,
       nombre: 'Pantalones Deportivos',
       ref: '#36LKN74A',
       precio: 150000,

@@ -27,11 +27,11 @@ const Tennis = () => {
 
   const tennis = [
     {
-      id: 1,
+      id: 17,
       nombre: 'Tennis Deportivos',
       ref: '#5574ASD',
       precio: 150000,
-      descuento : 0.2,
+      descuento: 0.2,
       colores: [
         {
           id: 1,
@@ -66,10 +66,10 @@ const Tennis = () => {
       ]
     },
     {
-      id: 2,
+      id: 18,
       nombre: 'Tennis Grinch',
       ref: '#31874LJKD',
-      descuento : 0.15,
+      descuento: 0.15,
       precio: 312999,
       colores: [
         {
@@ -90,11 +90,11 @@ const Tennis = () => {
       ]
     },
     {
-      id: 3,
+      id: 19,
       nombre: 'Tennis Deportivos EQ19',
       ref: '#2694EQ19',
       precio: 661999,
-      descuento : 0.1,
+      descuento: 0.1,
       colores: [
         {
           id: 1,
@@ -119,11 +119,11 @@ const Tennis = () => {
       ]
     },
     {
-      id: 4,
+      id: 20,
       nombre: 'Tennis Samba',
       ref: '#96574ASAMBAD',
       precio: 299999,
-      descuento : 0.05,
+      descuento: 0.05,
       colores: [
         {
           id: 1,
@@ -161,7 +161,7 @@ const Tennis = () => {
         {tennis.map((tenni, index) => (
           <CardProductos
             key={index + 1}
-            descuento = {tenni.descuento}
+            descuento={tenni.descuento}
             nombre={tenni.nombre}
             referencia={tenni.ref}
             precio={tenni.precio}

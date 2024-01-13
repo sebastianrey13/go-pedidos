@@ -22,11 +22,12 @@
 }
 
 .header-contenido {
-    width: 60px;
+    width: 55px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
+    margin-left: 5px;
 }
 
 .header-contenido-2 {
@@ -54,10 +55,7 @@
 }
 
 .buscarProductoIco{
-    width: 160px;
+    width: 150px;
     border-bottom: 1px solid #ffffff;
 }
 
-.numeroProductosCarro{
-    margin-top: 5px;
-}

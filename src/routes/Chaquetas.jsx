@@ -36,7 +36,7 @@ const Chaquetas = () => {
       ]
     },
     {
-      id: 1,
+      id: 2,
       nombre: 'Chaquetas Deportivas',
       ref: '#967WENFIUH',
       precio: 150000,
