@@ -46,8 +46,8 @@
 }
 
 .popupCard {
-    height: 100%;
     max-width: 450px;
+    height: 95%;
     width: 100%;
     padding: 0px;
     background-color: #ffffff;
