@@ -98,6 +98,7 @@ const Terceros = (props) => {
           type="text"
           className='inputFiltrar'
           value={filtro}
+          placeholder='Buscar por Nombre o NIT'
           onChange={(e) => setFiltro(e.target.value)}
         />
         <div className='tercerosContainer'>
@@ -108,7 +109,7 @@ const Terceros = (props) => {
           ).map((tercero, index) => (
             <div key={index + 1} onClick={() => seleccionarTercero(tercero)}>
               <div className="seleccionTercero">
-                <div>
+                <div className='imageAvatarDiv'>
                   <img className="imageAvatar" src={tercero.img} alt="" />
                 </div>
                 <div className="seleccionP">

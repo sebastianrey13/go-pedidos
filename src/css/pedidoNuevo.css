@@ -76,6 +76,13 @@
     border-bottom: solid #56be59 1px;
 }
 
+.imageAvatarDiv{
+    height: 59px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .imageAvatar {
     width: 50px;
     border-radius: 5px;
@@ -101,8 +108,9 @@
     width: 100%;
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 5px;
+    padding: 10px;
     outline: none;
+    margin-bottom: 20px;
 }
 
 
