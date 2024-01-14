@@ -224,15 +224,15 @@ const CardProductos = (props) => {
 
     /* Confirmar Producto */
 
-    const guardarEnSessionStorage = (producto) => {
+    const guardarEnLocalStorage = (producto) => {
         // Obtener el array almacenado en el Local Storage o usar un array vacío por defecto
-        const productosEnCarrito = JSON.parse(sessionStorage.getItem('productosEnCarrito')) || [];
+        const productosEnCarrito = JSON.parse(localStorage.getItem('productosEnCarrito')) || [];
 
         // Agregar el nuevo producto al array
         productosEnCarrito.push(producto);
 
         // Guardar el array actualizado en el Local Storage
-        sessionStorage.setItem('productosEnCarrito', JSON.stringify(productosEnCarrito));
+        localStorage.setItem('productosEnCarrito', JSON.stringify(productosEnCarrito));
     };
 
 
@@ -275,7 +275,7 @@ const CardProductos = (props) => {
                         icon: 'success',
                         confirmButtonColor: '#009b3e',
                     })
-                    guardarEnSessionStorage(productoConfirmado);
+                    guardarEnLocalStorage(productoConfirmado);
                     /* se resetean valores de la card */
                     recargarProductos();
                     setTallaSeleccionada('');

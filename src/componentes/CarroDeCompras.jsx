@@ -58,14 +58,14 @@ const CarroDeCompras = () => {
 
   const realizarCotizacion = () => {
     if (objetosArray.length > 0) {
-      Swal.fire({
-        title: 'Go Pedidos',
-        html: `<p>Cotización realizada satisfactoriamente</p>`,
-        icon: 'success',
-        confirmButtonColor: '#009b3e',
-      });
+      // Swal.fire({
+      //   title: 'Go Pedidos',
+      //   html: `<p>Cotización realizada satisfactoriamente</p>`,
+      //   icon: 'success',
+      //   confirmButtonColor: '#009b3e',
+      // });
       toggleCarrito();
-      sessionStorage.clear();
+      navigate('/realizar-pedido')
     } else {
       Swal.fire({
         title: 'Go Pedidos',
@@ -122,7 +122,7 @@ const CarroDeCompras = () => {
                 <p>${formatearNumero(precioNetoTotal - descuentoTotal)}</p>
               </div>
             </div>
-            <button onClick={realizarCotizacion}>Finalizar Cotización</button>
+            <button onClick={realizarCotizacion}>Realizar Cotización</button>
           </div>
         </div>
 

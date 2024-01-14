@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import '../css/pedidoNuevo.css'
+import '../css/loginSingUp.css'
 
 import { useState } from 'react';
 
@@ -10,6 +11,7 @@ import iconoRol from "../../public/iconorol.png"
 import formaPagoIco from "../../public/monedas.png"
 import listaDePreciosIco from "../../public/lista-de-precios.png"
 import tipoFacturaIco from "../../public/hoja-de-calculo.png"
+import Terceros from '../componentes/Terceros';
 
 
 
@@ -18,28 +20,15 @@ import tipoFacturaIco from "../../public/hoja-de-calculo.png"
 
 const PedidoNuevo = () => {
 
-    const [tecero, setTercero] = useState('');
+    const [tercero, setTercero] = useState({
+        nombre: 'Seleccione un tercero',
+    });
     const [signupEmail, setSignupEmail] = useState('');
     const [fechaActual, setFechaActual] = useState('');
-    const [rolSeleccionado, setRolSelecionado] = useState({
-        id: 0,
-        name: 'Selecciona tu rol',
-    });
-
-
+    const [isOpenTercero, setIsOpenTercero] = useState(false)
     const [isError, setIsError] = useState(false);
-
     const [userId, setUserId] = useState(null);
     const [error, setError] = useState("")
-
-    const handleRolChange = (event) => {
-        const selectedRolId = parseInt(event.target.value, 10); // Convertir a entero usando parseInt
-        // Actualizar el estado con el id y nombre del rol seleccionado
-        setRolSelecionado({
-            id: selectedRolId,
-            name: selectedRolId === 1 ? 'ADMIN' : 'USER', // Comparar con número en lugar de cadena
-        });
-    };
 
     const formaDePago = [
         {
@@ -104,7 +93,7 @@ const PedidoNuevo = () => {
 
     useEffect(() => {
         obtenerFechaActual()
-    }, [tecero])
+    }, [tercero])
 
     const obtenerFechaActual = () => {
         let hoy = new Date();
@@ -119,22 +108,32 @@ const PedidoNuevo = () => {
         setFechaActual(fechaActualString); // Actualizar el estado con la fecha actual
     };
 
+    const togglePopupTecero = () => {
+        setIsOpenTercero(!isOpenTercero)
+    }
+
+
+    const handleTerceroSeleccionado = (terceroNombre) => {
+        setTercero(terceroNombre);
+        setIsOpenTercero(false);
+    };
 
     return (
         <div className='pedidoNuevo'>
             <h2 className='titulo'>Nueva Cotización</h2>
             <form className='form-pedidoNuevo' onSubmit={handleLogin}>
-                <div className="input-container input-pedidoNuevo">
+                <div onClick={togglePopupTecero} className="input-container">
                     <img src={iconoUsuario} className="custom-icon" />
-                    <input
-                        type="text"
-                        value={tecero}
-                        onChange={(e) => setTercero(e.target.value)}
-                        placeholder="Escoja un tercero"
-                    />
+                    <p className='pedidoNuevoPTercero'>{tercero.nombre}</p>
                 </div>
+                {isOpenTercero && (
+                    <Terceros
+                        togglePopupTecero={togglePopupTecero}
+                        handleTerceroSeleccionado={handleTerceroSeleccionado}
 
-                <div className="input-container input-pedidoNuevo">
+                    />
+                )}
+                <div className="input-container">
                     <img src={iconoCorreo} className="custom-icon" />
                     <input
                         type="email"
@@ -144,14 +143,12 @@ const PedidoNuevo = () => {
                     />
                 </div>
 
-                <div className="input-container input-pedidoNuevo input-select-pedidoNuevo">
+                <div className="input-container input-select-pedidoNuevo">
                     <img src={formaPagoIco} className="custom-icon" />
                     <select
                         className='estilosForm select-pedidoNuevo'
                         name='role'
                         id='role'
-                        value={rolSeleccionado.id}
-                        onChange={handleRolChange}
                     >
                         <option className='option-pedidoNuevo' value={undefined}>Forma de Pago</option>
                         {formaDePago.map((opcion, index) => (
@@ -160,14 +157,12 @@ const PedidoNuevo = () => {
                     </select>
                 </div>
 
-                <div className="input-container input-pedidoNuevo input-select-pedidoNuevo">
+                <div className="input-container input-select-pedidoNuevo">
                     <img src={listaDePreciosIco} className="custom-icon" />
                     <select
                         className='estilosForm select-pedidoNuevo'
                         name='role'
                         id='role'
-                        value={rolSeleccionado.id}
-                        onChange={handleRolChange}
                     >
                         <option className='option-pedidoNuevo' value={undefined}>Lista de Precios</option>
                         {listaDePrecios.map((opcion, index) => (
@@ -176,14 +171,12 @@ const PedidoNuevo = () => {
                     </select>
                 </div>
 
-                <div className="input-container input-pedidoNuevo input-select-pedidoNuevo">
+                <div className="input-container input-select-pedidoNuevo">
                     <img src={tipoFacturaIco} className="custom-icon" />
                     <select
                         className='estilosForm select-pedidoNuevo'
                         name='role'
                         id='role'
-                        value={rolSeleccionado.id}
-                        onChange={handleRolChange}
                     >
                         <option className='option-pedidoNuevo' value={undefined}>Tipo de Pedido</option>
                         {tipoDeFactura.map((opcion, index) => (
@@ -193,7 +186,7 @@ const PedidoNuevo = () => {
                 </div>
 
 
-                {/* <div className="input-container input-pedidoNuevo">
+                {/* <div className="input-container">
                     <img src={iconoUsuario} className="custom-icon" />
                     <input
                         type="date"
@@ -210,7 +203,7 @@ const PedidoNuevo = () => {
                         info={error}
                     />
                 )}
-                <button className="boton botonIngreso" type="submit">Realizar Pedido</button>
+                <button className="boton" type="submit">Finalizar Cotización</button>
             </form>
         </div>
     )

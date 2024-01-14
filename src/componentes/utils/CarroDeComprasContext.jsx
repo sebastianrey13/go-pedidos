@@ -10,8 +10,8 @@ const CarroDeComprasProvider = ({ children }) => {
     const [reloadArrayProductos, setReloadArrayProductos] = useState(false);
     const [objetosArray, setObjetosArray] = useState([]);
 
-    const ObtenerProductosDelSessionStorage = () => {
-        const productosEnCarrito = JSON.parse(sessionStorage.getItem('productosEnCarrito')) || [];
+    const ObtenerProductosDelLocalStorage = () => {
+        const productosEnCarrito = JSON.parse(localStorage.getItem('productosEnCarrito')) || [];
         return (
             setObjetosArray(productosEnCarrito)
         )
@@ -23,15 +23,15 @@ const CarroDeComprasProvider = ({ children }) => {
 
     useEffect(() => {
 
-        ObtenerProductosDelSessionStorage();
+        ObtenerProductosDelLocalStorage();
 
     }, [reloadArrayProductos])
 
 
     const eliminarObjetoArray = (id) => {
         const nuevoArray = objetosArray.filter(objeto => objeto.id !== id);
-        sessionStorage.clear();
-        sessionStorage.setItem('productosEnCarrito', JSON.stringify(nuevoArray));
+        localStorage.clear();
+        localStorage.setItem('productosEnCarrito', JSON.stringify(nuevoArray));
         setObjetosArray(nuevoArray);
     };
 
