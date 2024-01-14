@@ -7,6 +7,11 @@
   font-style: normal;
 }
 
+.popup-open {
+  overflow: hidden;
+  height: 100%;
+}
+
 .boton {
   width: auto;
   border: none;

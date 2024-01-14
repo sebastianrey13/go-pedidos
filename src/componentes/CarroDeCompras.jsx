@@ -35,6 +35,7 @@ const CarroDeCompras = () => {
 
   const toggleCarrito = () => {
     setIsOpenCar(!isOpenCar)
+    document.body.classList.toggle('popup-open', !isOpenCar);
     setRecargarPrecios(!recargarPrecios)
     validarProductosCesta();
   }
@@ -58,12 +59,6 @@ const CarroDeCompras = () => {
 
   const realizarCotizacion = () => {
     if (objetosArray.length > 0) {
-      // Swal.fire({
-      //   title: 'Go Pedidos',
-      //   html: `<p>Cotización realizada satisfactoriamente</p>`,
-      //   icon: 'success',
-      //   confirmButtonColor: '#009b3e',
-      // });
       toggleCarrito();
       navigate('/realizar-pedido')
     } else {
