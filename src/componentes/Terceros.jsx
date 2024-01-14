@@ -11,14 +11,15 @@ import camaraLogo from '../../public/terceros/camara.png'
 import uisLogo from '../../public/terceros/uis.png'
 import deportivosCarvajalLogo from '../../public/terceros/deportivosCarvajal.png'
 import calzadoRomuloLogo from '../../public/terceros/calzadoRomulo.png'
-import bataLogo from '../../public/terceros/batalogo.png'
+import bataLogo from '../../public/terceros/bataLogo.png'
+
 
 const Terceros = (props) => {
 
   const [terceroId, setTerceroId] = useState(0);
   const [terceroNombre, setTerceroNombre] = useState('');
   const [terceroNit, setTerceroNit] = useState('');
-  // const [terceroImg, setTerceroImg] = useState('');
+  const [terceroImg, setTerceroImg] = useState('');
 
   const [terceroSeleccionado, setTerceroSeleccionado] = useState(null);
 
