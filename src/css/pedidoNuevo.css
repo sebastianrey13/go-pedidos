@@ -27,6 +27,13 @@
     padding-left: 5px;
 }
 
+.tituloTercero {
+    color: #005a26;
+    text-align: center;
+    margin: 10px;
+    font-size: 25px;
+}
+
 /* Tercero*/
 
 .popup-bg-tercero {
@@ -54,7 +61,7 @@
     position: relative;
 }
 
-.tercerosContainer{
+.tercerosContainer {
     height: 400px;
     overflow-y: auto;
 }
@@ -74,13 +81,13 @@
     border-radius: 5px;
 }
 
-.seleccionP{
+.seleccionP {
     display: flex;
     flex-direction: column;
     gap: 3px;
 }
 
-.pRazonSocial{
+.pRazonSocial {
     font-weight: bold;
     font-size: 15px;
 }
@@ -90,7 +97,13 @@
     font-size: 12px;
 }
 
-
+.inputFiltrar{
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+}
 
 
 

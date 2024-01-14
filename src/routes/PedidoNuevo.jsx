@@ -28,7 +28,8 @@ const PedidoNuevo = () => {
     const [isOpenTercero, setIsOpenTercero] = useState(false)
     const [isError, setIsError] = useState(false);
     const [userId, setUserId] = useState(null);
-    const [error, setError] = useState("")
+    const [error, setError] = useState("");
+
 
     const formaDePago = [
         {

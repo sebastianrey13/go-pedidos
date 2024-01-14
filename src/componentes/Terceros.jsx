@@ -20,6 +20,9 @@ const Terceros = (props) => {
   const [terceroNombre, setTerceroNombre] = useState('');
   const [terceroNit, setTerceroNit] = useState('');
   const [terceroImg, setTerceroImg] = useState('');
+  const [filtro, setFiltro] = useState('');
+
+
 
   const [terceroSeleccionado, setTerceroSeleccionado] = useState(null);
 
@@ -90,9 +93,19 @@ const Terceros = (props) => {
     <div className='popup-bg-tercero'>
       <div className='popupTercero'>
         <img onClick={props.togglePopupTecero} className="close-button-img" src={cerrar} alt="Cerrar" />
-        <h2 className='titulo'>Seleccione un tecero</h2>
+        <h2 className='tituloTercero'>Terceros:</h2>
+        <input
+          type="text"
+          className='inputFiltrar'
+          value={filtro}
+          onChange={(e) => setFiltro(e.target.value)}
+        />
         <div className='tercerosContainer'>
-          {arrayTerceros.map((tercero, index) => (
+          {arrayTerceros.filter(
+            (tercero) =>
+              tercero.nombre.toLowerCase().includes(filtro.toLowerCase()) ||
+              tercero.nit.includes(filtro)
+          ).map((tercero, index) => (
             <div key={index + 1} onClick={() => seleccionarTercero(tercero)}>
               <div className="seleccionTercero">
                 <div>
