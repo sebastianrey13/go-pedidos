@@ -1,33 +1,33 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useContext } from 'react'
 import '../css/pedidoNuevo.css'
 import '../css/loginSingUp.css'
 
 import { useState } from 'react';
+import CardError from '../componentes/CardError.jsx'
 
 import cerrar from '../../public/cerrar.png'
 import iconoUsuario from '../../public/iconousuario.svg'
 import iconoCorreo from "../../public/iconocorreo.svg"
-import iconoRol from "../../public/iconorol.png"
+import iconoCalendario from "../../public/calendario.png"
 import formaPagoIco from "../../public/monedas.png"
 import listaDePreciosIco from "../../public/lista-de-precios.png"
 import tipoFacturaIco from "../../public/hoja-de-calculo.png"
 import Terceros from '../componentes/Terceros';
-
-
-
-
+import Swal from 'sweetalert2';
+import { CarroDeComprasContext } from '../componentes/utils/CarroDeComprasContext.jsx';
 
 
 const PedidoNuevo = () => {
 
+    const { recargarProductos } = useContext(CarroDeComprasContext);
     const [tercero, setTercero] = useState({
         nombre: 'Seleccione un tercero',
     });
     const [signupEmail, setSignupEmail] = useState('');
     const [fechaActual, setFechaActual] = useState('');
+    const [fechaDeEntrega, setFechaDeEntrega] = useState('');
     const [isOpenTercero, setIsOpenTercero] = useState(false)
     const [isError, setIsError] = useState(false);
-    const [userId, setUserId] = useState(null);
     const [error, setError] = useState("");
 
 
@@ -119,11 +119,39 @@ const PedidoNuevo = () => {
         setIsOpenTercero(false);
     };
 
+    const generarIDPedido = () => {
+        const idPedido = Math.floor(Math.random() * 100) + Math.random().toString(36).substr(2, 9)
+        return idPedido
+    }
+
+    const realizarConfirmacion = (e) => {
+        e.preventDefault();
+        Swal.fire({
+            title: 'Go Pedidos',
+            html: `<p>¿Realizar Cotización?</p>`,
+            icon: 'question',
+            showDenyButton: true,
+            confirmButtonText: 'Si',
+            confirmButtonColor: '#009b3e'
+        }).then((respuesta) => {
+            if (respuesta.isConfirmed) {
+                Swal.fire({
+                    title: 'Go Pedidos',
+                    html: `<div><p>Cotización realizada satisfactoriamente</p><p>Ref: <b>${generarIDPedido().toUpperCase()}</b></p></div>`,
+                    icon: 'success',
+                    confirmButtonColor: '#009b3e',
+                });
+                recargarProductos();
+                localStorage.clear();
+            }
+        })
+    }
+
     return (
         <div className='pedidoNuevo'>
             <h2 className='titulo'>Nueva Cotización</h2>
-            <form className='form-pedidoNuevo' onSubmit={handleLogin}>
-                <div onClick={togglePopupTecero} className="input-container">
+            <form className='form-pedidoNuevo' onSubmit={realizarConfirmacion}>
+                <div onClick={togglePopupTecero} className="input-container input-container-tercero">
                     <img src={iconoUsuario} className="custom-icon" />
                     <p className='pedidoNuevoPTercero'>{tercero.nombre}</p>
                 </div>
@@ -131,7 +159,6 @@ const PedidoNuevo = () => {
                     <Terceros
                         togglePopupTecero={togglePopupTecero}
                         handleTerceroSeleccionado={handleTerceroSeleccionado}
-
                     />
                 )}
                 <div className="input-container">
@@ -186,25 +213,20 @@ const PedidoNuevo = () => {
                     </select>
                 </div>
 
-
-                {/* <div className="input-container">
-                    <img src={iconoUsuario} className="custom-icon" />
+                <div className="input-container input-container-date">
+                    <img src={iconoCalendario} className="custom-icon" />
                     <input
                         type="date"
-                        value={fechaActual}
-                        // onChange={(e) => setFechaActual(e.target.value)}
-                        placeholder="Fecha Actual"
-                        disabled={true}
+                        className='input-date'
                     />
-                </div> */}
-
+                </div>
                 {isError && (
                     <CardError
                         className='cardError'
                         info={error}
                     />
                 )}
-                <button className="boton" type="submit">Finalizar Cotización</button>
+                <button className="botonFinzalizar" type="submit">Finalizar Cotización</button>
             </form>
         </div>
     )

@@ -22,9 +22,15 @@
     height: 30px;
 }
 
+.input-container-tercero {
+    cursor: pointer;
+}
+
 .pedidoNuevoPTercero {
     font-size: 13px;
     padding-left: 5px;
+    cursor: pointer;
+    width: 250px;
 }
 
 .tituloTercero {
@@ -32,6 +38,20 @@
     text-align: center;
     margin: 10px;
     font-size: 25px;
+}
+
+.input-container-date {
+    position: relative;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 15px;
+    cursor: pointer;
 }
 
 /* Tercero*/
@@ -120,33 +140,18 @@
     box-shadow: 0 0 5px rgb(0, 155, 62, 0.5);
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/* No es necesario mover el icono porque al estar deshabilitado se oculta */
-/* input[type="date"]::-webkit-calendar-picker-indicator {
-    position: relative;
-    left: -267px;
-} */
+.botonFinzalizar {
+    background-color: #02652C;
+    color: #ffffff;
+    height: 35px;
+    width: 155px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 15px;
+    border: none;
+    font-weight: bold;
+}
