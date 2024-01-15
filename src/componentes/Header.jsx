@@ -20,17 +20,22 @@ const Header = () => {
     const cerrarPopup = () => {
         setLoginPopupOpen(false)
         setSignupPopupOpen(false)
+        document.body.classList.remove('popup-open');
     }
 
     const abrirSinupPopup = () => {
         setLoginPopupOpen(false)
         setSignupPopupOpen(true)
+        document.body.classList.add('popup-open');
     }
 
     const abrirLoginPopup = () => {
         setLoginPopupOpen(true)
         setSignupPopupOpen(false)
+        document.body.classList.add('popup-open');
     }
+
+    
 
     return (
         <div className='header'>

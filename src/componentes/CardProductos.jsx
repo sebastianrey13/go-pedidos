@@ -195,9 +195,11 @@ const CardProductos = (props) => {
     }
     const mostrarConfirmarProducto = () => {
         setIsConfirmarAñadirProducto(true);
+        document.body.classList.add('popup-open');
     }
 
     const ocultarConfirmarProducto = () => {
+        document.body.classList.remove('popup-open');
         setIsConfirmarAñadirProducto(false);
         setMensajeError('');
     }
