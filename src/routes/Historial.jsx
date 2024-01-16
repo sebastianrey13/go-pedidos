@@ -92,45 +92,77 @@ const Historial = () => {
 
 
   return (
+    // <div className='historial'>
+    //   <h2 className='titulo'>Historial de Cotizaciones</h2>
+    //   <div className='historialCotizaciones'>
+    //     {cotizacionesRealizadas.map((cotizacion) => (
+    //       cotizacion.productosCotizados.map((producto) => (
+    //         <CardCotizacionesRealizadas
+
+    //           //Info Cotización
+    //           key={cotizacion.id}
+    //           id={cotizacion.id}
+    //           email={cotizacion.email}
+    //           formaDePago={cotizacion.formaDePago}
+    //           listaPrecios={cotizacion.listaPrecios}
+    //           tipoFactura={cotizacion.tipoFactura}
+    //           fechaActual={cotizacion.fechaActual}
+    //           fechaDeEntrega={cotizacion.fechaDeEntrega}
+
+    //           //Info Tercero
+
+    //           terceroNombre={cotizacion.tercero.nombre}
+    //           terceroNit={cotizacion.tercero.nit}
+    //           terceroImg={cotizacion.tercero.img}
+
+    //           //Info Productos
+
+    //           productoID={producto.id}
+    //           productoNombre={producto.nombre}
+    //           productoReferencia={producto.referencia}
+    //           productoDescuento={producto.descuento}
+    //           productoTalla={producto.talla}
+    //           productoObservacion={producto.observacion}
+    //           productoImg={producto.img}
+    //           productoColor={producto.color}
+    //           productoPrecio={producto.precio}
+    //           productoUnidades={producto.unidades}
+    //         />
+    //       ))
+    //     ))
+    //     }
+    //   </div>
+    // </div>
     <div className='historial'>
       <h2 className='titulo'>Historial de Cotizaciones</h2>
       <div className='historialCotizaciones'>
         {cotizacionesRealizadas.map((cotizacion) => (
-          cotizacion.productosCotizados.map((producto) => (
-            <CardCotizacionesRealizadas
+          <CardCotizacionesRealizadas
+            key={cotizacion.id}
+            id={cotizacion.id}
+            email={cotizacion.email}
+            formaDePago={cotizacion.formaDePago}
+            listaPrecios={cotizacion.listaPrecios}
+            tipoFactura={cotizacion.tipoFactura}
+            fechaActual={cotizacion.fechaActual}
+            fechaDeEntrega={cotizacion.fechaDeEntrega}
+            terceroNombre={cotizacion.tercero.nombre}
+            terceroNit={cotizacion.tercero.nit}
+            terceroImg={cotizacion.tercero.img}
 
-              //Info Cotización
-              key={cotizacion.id}
-              id={cotizacion.id}
-              email={cotizacion.email}
-              formaDePago={cotizacion.formaDePago}
-              listaPrecios={cotizacion.listaPrecios}
-              tipoFactura={cotizacion.tipoFactura}
-              fechaActual={cotizacion.fechaActual}
-              fechaDeEntrega={cotizacion.fechaDeEntrega}
-
-              //Info Tercero
-
-              terceroNombre={cotizacion.tercero.nombre}
-              terceroNit={cotizacion.tercero.nit}
-              terceroImg={cotizacion.tercero.img}
-
-              //Info Productos
-
-              productoID={producto.id}
-              productoNombre={producto.nombre}
-              productoReferencia={producto.referencia}
-              productoDescuento={producto.descuento}
-              productoTalla={producto.talla}
-              productoObservacion={producto.observacion}
-              productoImg={producto.img}
-              productoColor={producto.color}
-              productoPrecio={producto.precio}
-              productoUnidades={producto.unidades}
-            />
-          ))
-        ))
-        }
+            // Tomar solo el primer productoCotizado
+            productoID={cotizacion.productosCotizados[0].id}
+            productoNombre={cotizacion.productosCotizados[0].nombre}
+            productoReferencia={cotizacion.productosCotizados[0].referencia}
+            productoDescuento={cotizacion.productosCotizados[0].descuento}
+            productoTalla={cotizacion.productosCotizados[0].talla}
+            productoObservacion={cotizacion.productosCotizados[0].observacion}
+            productoImg={cotizacion.productosCotizados[0].img}
+            productoColor={cotizacion.productosCotizados[0].color}
+            productoPrecio={cotizacion.productosCotizados[0].precio}
+            productoUnidades={cotizacion.productosCotizados[0].unidades}
+          />
+        ))}
       </div>
     </div>
   )
