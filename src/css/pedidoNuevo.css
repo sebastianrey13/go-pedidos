@@ -54,6 +54,15 @@ input[type="date"]::-webkit-calendar-picker-indicator {
     cursor: pointer;
 }
 
+.pedidoNuevoFechaEntrega{
+    font-size: 13px;
+}
+
+.inputRequerido{
+    border-color: #ff0000;
+    color: #ff0000;
+}
+
 /* Tercero*/
 
 .popup-bg-tercero {
