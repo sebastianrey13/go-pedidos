@@ -56,9 +56,12 @@ const CardProductoCarro = (props) => {
         <p><b>x {props.unidades}</b></p>
       </div>
       <div className='cardProductoCarroContainer3'>
-        <p><b>$</b><span className='CardProducoCarroPrecio'>{formatearNumero(props.precio * props.unidades)}</span></p>
+        <div>
+          <p>$<span className='CardProducoCarroPrecio'>{formatearNumero(props.precio * props.unidades)}</span></p>
+          <p className='cardProductoCarroContainer3Descuento'>-{props.descuento * 100}%</p>
+          <p className='CardProducoCarroPrecioFinal'><b>${formatearNumero((props.precio * props.unidades) - ((props.precio * props.unidades) * props.descuento))}</b></p>
+        </div>
         <img onClick={eliminarProductoCarro} className='CardProducoCarroPrecioPapeleraIco' src={papelera} alt="" />
-
       </div>
     </div>
   )

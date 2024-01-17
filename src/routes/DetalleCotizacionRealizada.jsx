@@ -48,9 +48,13 @@ const DetalleCotizacionRealizada = () => {
         </Link>
       </div>
       <div className='detalleCotizacionContainer1'>
-        <p className='detalleCotizacionSubtitulo'>Detalles del pedido</p>
+        <p className='detalleCotizacionSubtitulo'>Detalles de la cotización</p>
         <div>
           <div className='detalleCotizacionBorde'>
+            <div className='estadoCotizacionDiv'>
+              <p>Estado</p>
+              <p className='estadoCotizacionEstado'>Estado de Cotización</p>
+            </div>
             <div className='detalleCotizacionInfo1'>
               <div className='detalleCotizacionInfo1-div1'>
                 <p>Fecha cotización</p>
@@ -69,7 +73,7 @@ const DetalleCotizacionRealizada = () => {
             </div>
           </div>
         </div>
-        <p className='detalleCotizacionSubtitulo'>Detalles de envío</p>
+        <p className='detalleCotizacionSubtitulo'>Productos</p>
         <div className='detalleCotizacionBorde'>
 
           {cotizacion.productosCotizados.map((producto, index) => (
@@ -93,8 +97,38 @@ const DetalleCotizacionRealizada = () => {
               </div>
             </div>
           ))}
-
-
+        </div>
+        <p className='detalleCotizacionSubtitulo'>Información sobre el pago</p>
+        <div className='detalleCotizacionBorde'>
+          <div className='infoPago'>
+            <p className='infoPagoTitulo'>Cliente</p>
+            <p>{cotizacion.tercero.nombre}</p>
+          </div>
+          <div className='infoPago'>
+            <p className='infoPagoTitulo'>Tipo de factura</p>
+            <p>{cotizacion.tipoFactura}</p>
+          </div>
+          <div className='infoPago'>
+            <p className='infoPagoTitulo'>Medio de pago</p>
+            <p>{cotizacion.formaDePago}</p>
+          </div>
+          <div className='infoPago sinBordeBot'>
+            <p className='infoPagoTitulo'>Lista de precios</p>
+            <p>{cotizacion.listaPrecios}</p>
+          </div>
+        </div>
+        <p className='detalleCotizacionSubtitulo'>Resumen de la cotización</p>
+        <div className='detalleCotizacionBorde resumenCotizacion'>
+          <div>
+            <p>SubTotal Productos:</p>
+            <p>Descuento</p>
+            <p className='resumenCotizacionValorTotal'><b>Total de Cotización</b></p>
+          </div>
+          <div className='resumenCotizacionValores'>
+            <p>${formatearNumero(cotizacion.precioNetoTotal)}</p>
+            <p className='resumenCotizacionDescuento'>-${formatearNumero(cotizacion.precioNetoTotal - cotizacion.percioConDescuento)}</p>
+            <p className='resumenCotizacionValorTotal'><b>${formatearNumero(cotizacion.percioConDescuento)}</b></p>
+          </div>
         </div>
       </div>
     </div>

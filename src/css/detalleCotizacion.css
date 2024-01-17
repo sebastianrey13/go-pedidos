@@ -29,7 +29,7 @@
 
 .detalleCotizacionSubtitulo {
   font-weight: bold;
-  font-size: 22px;
+  font-size: 18px;
   padding-left: 15px;
   margin-bottom: 10px;
 }
@@ -41,12 +41,27 @@
   margin-bottom: 10px;
 }
 
+.estadoCotizacionDiv {
+  height: 40px;
+  border-bottom: 1px solid #e7e7e7;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+}
+
+.estadoCotizacionEstado {
+  font-weight: bold;
+  color: #008536;
+}
+
 .detalleCotizacionInfo1 {
   display: flex;
   flex-direction: row;
   justify-content: start;
   align-items: center;
-  height: 86px;
+  height: 100px;
   gap: 10px;
   border-bottom: 1px solid #e7e7e7;
 
@@ -138,4 +153,46 @@
 
 .cardProductoCotizacionRealizadaContainer3PrecioFinal {
   font-size: 14px;
+}
+
+.infoPago {
+  border-bottom: 1px solid #e7e7e7;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  font-size: 15px;
+}
+
+.sinBordeBot {
+  border-bottom: none;
+}
+
+.infoPagoTitulo {
+  font-weight: bold;
+  color: #565959;
+}
+
+.resumenCotizacion {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  line-height: 1.3rem;
+  font-size: 13px;
+}
+
+.resumenCotizacionValores {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.resumenCotizacionDescuento {
+  color: #ff0000;
+}
+
+.resumenCotizacionValorTotal {
+  font-size: 15px;
 }
