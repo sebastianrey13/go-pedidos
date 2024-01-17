@@ -6,7 +6,9 @@ import flecha from '../../public/flecha-correcta.png'
 const DetalleCotizacionRealizada = () => {
 
   const params = useParams();
+
   const [cotizacion, setCotizacion] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const cotizacionesRealizadas = JSON.parse(localStorage.getItem('cotizacionesRealizadas')) || [];
@@ -23,6 +25,10 @@ const DetalleCotizacionRealizada = () => {
     );
   }
 
+  const volverAlHistorial = () => {
+    navigate('/historial')
+  }
+
   console.log(cotizacion)
 
   const formatearNumero = (precio) => {
@@ -37,7 +43,9 @@ const DetalleCotizacionRealizada = () => {
   return (
     <div className='detalleCotizacion'>
       <div className='detalleCotizacionVolver'>
-        <p>&lt; Historial</p>
+        <Link to={'/historial'}>
+          <p>&lt; Historial</p>
+        </Link>
       </div>
       <div className='detalleCotizacionContainer1'>
         <p className='detalleCotizacionSubtitulo'>Detalles del pedido</p>

@@ -20,6 +20,13 @@
   padding-left: 15px;
 }
 
+.detalleCotizacionVolver p {
+  height: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .detalleCotizacionSubtitulo {
   font-weight: bold;
   font-size: 22px;
@@ -57,7 +64,7 @@
   color: #565959;
 }
 
-.decargarFactura{
+.decargarFactura {
   height: 50px;
   display: flex;
   flex-direction: row;
@@ -65,6 +72,6 @@
   align-items: center;
 }
 
-.decargarFactura img{
+.decargarFactura img {
   padding-right: 10px;
 }
