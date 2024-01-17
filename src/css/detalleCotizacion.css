@@ -34,10 +34,11 @@
   margin-bottom: 10px;
 }
 
-.detalleCotizacionContainer1-1 {
+.detalleCotizacionBorde {
   padding: 10px;
   border: 1px solid #e7e7e7;
   border-radius: 5px;
+  margin-bottom: 10px;
 }
 
 .detalleCotizacionInfo1 {
@@ -74,4 +75,67 @@
 
 .decargarFactura img {
   padding-right: 10px;
+}
+
+/* Productos */
+
+.cardProductoCotizacionRealizada {
+  position: relative;
+  font-size: 12px;
+  min-width: 335px;
+  width: 100%;
+  height: 100px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.cardProductoCotizacionRealizadaImg {
+  width: 60px;
+  border-radius: 5px;
+}
+
+.cardProductoCotizacionRealizadaContainer2 {
+  width: 180px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-left: 10px;
+}
+
+.cardProductoCotizacionRealizadaContainer2 p {
+  color: #777777;
+}
+
+.cardProductoCotizacionRealizadaContainer2 h3 {
+  margin-bottom: 5px;
+}
+
+.cardProductoCotizacionRealizadaContainer3 {
+  position: absolute;
+  right: 5px;
+  line-height: 1.35;
+}
+
+.cardProductoCotizacionRealizadaContainer3PrecioNeto {
+  text-decoration: line-through;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  font-size: 12px;
+}
+
+.cardProductoCotizacionRealizadaContainer3PorcentajeDescuento {
+  color: #ff0000;
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  font-size: 12px;
+}
+
+.cardProductoCotizacionRealizadaContainer3PrecioFinal {
+  font-size: 14px;
 }
