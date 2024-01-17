@@ -1,0 +1,70 @@
+.detalleCotizacion {
+  margin-top: 50px;
+  color: #0F1111;
+  font-size: 15px;
+
+}
+
+.detalleCotizacionContainer1 {
+  padding: 10px;
+}
+
+.detalleCotizacionVolver {
+  background-color: rgba(0, 0, 0, 0.08);
+  font-size: 18px;
+  height: 47px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-left: 15px;
+}
+
+.detalleCotizacionSubtitulo {
+  font-weight: bold;
+  font-size: 22px;
+  padding-left: 15px;
+  margin-bottom: 10px;
+}
+
+.detalleCotizacionContainer1-1 {
+  padding: 10px;
+  border: 1px solid #e7e7e7;
+  border-radius: 5px;
+}
+
+.detalleCotizacionInfo1 {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  align-items: center;
+  height: 86px;
+  gap: 10px;
+  border-bottom: 1px solid #e7e7e7;
+
+}
+
+.detalleCotizacionInfo1-div1 {
+  color: #565959;
+  line-height: 1.35;
+}
+
+.detalleCotizacionInfo1-div2 {
+  line-height: 1.35;
+}
+
+.detalleCotizacionInfo1-div2 span {
+  color: #565959;
+}
+
+.decargarFactura{
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.decargarFactura img{
+  padding-right: 10px;
+}

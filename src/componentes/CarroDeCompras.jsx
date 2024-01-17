@@ -12,10 +12,8 @@ import Swal from 'sweetalert2'
 const CarroDeCompras = () => {
 
   const navigate = useNavigate();
-  const { objetosArray, recargarProductos, calcularPrecioCesta, calcularDescuentoCesta } = useContext(CarroDeComprasContext);
+  const { objetosArray, recargarProductos, precioNetoTotal, descuentoTotal } = useContext(CarroDeComprasContext);
   const [isOpenCar, setIsOpenCar] = useState(false);
-  const [precioNetoTotal, setPrecioNetoTotal] = useState(0);
-  const [descuentoTotal, setDescuentoTotal] = useState(0);
   const [recargarPrecios, setRecargarPrecios] = useState(false);
   const [isCestaVacia, setIsCestaVacia] = useState(true);
 
@@ -42,8 +40,6 @@ const CarroDeCompras = () => {
 
   useEffect(() => {
     recargarProductos();
-    setPrecioNetoTotal(calcularPrecioCesta());
-    setDescuentoTotal(calcularDescuentoCesta());
     validarProductosCesta();
   }, [recargarPrecios])
 

@@ -3,7 +3,6 @@
   margin: 0;
   box-sizing: border-box;
   font-family: 'Roboto', sans-serif;
-  /* font-family: "inherit",Tahoma,sans-serif,Arial; */
   font-style: normal;
 }
 
@@ -45,6 +44,8 @@ form {
 
 a {
   text-decoration: none;
+  color: inherit;
+  cursor: pointer;
 }
 
 .titulo {

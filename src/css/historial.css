@@ -1,16 +1,16 @@
-.historial{
+.historial {
   margin-top: 50px;
   background-color: rgba(0, 0, 0, 0.08);
   height: 100vh;
 }
 
-.historial h2{
+.historial h2 {
   padding-top: 10px;
 }
 
 /* Card Cotizaciones */
 
-.cardCotizaciones{
+.cardCotizaciones {
   height: 150px;
   max-width: 450px;
   width: 92%;
@@ -20,7 +20,7 @@
   border-radius: 5px;
 }
 
-.cardCotizacionesFechaCotizacionRealizada{
+.cardCotizacionesInfo1 {
   width: 100%;
   height: 35px;
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
@@ -31,18 +31,24 @@
   padding: 0px 10px;
 }
 
-.cardCotizacionesFechaCotizacionRealizada p{
+.cardCotizacionesPedido {
   font-weight: bold;
   font-size: 15px;
 }
 
-.cardCotizacionesImg{
+.cardCotizacionesRef {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgb(73, 73, 73);
+}
+
+.cardCotizacionesImg {
   width: 80px;
   height: 80px;
   border-radius: 5px;
 }
 
-.cardCotizacionesInfo2{
+.cardCotizacionesInfo2 {
   height: 115px;
   display: flex;
   flex-direction: row;
@@ -51,18 +57,18 @@
   gap: 20px;
 }
 
-.cardCotizacionesInfo2-2{
+.cardCotizacionesInfo2-2 {
   display: flex;
   flex-direction: column;
   gap: 5px;
 }
 
-.cardCotizacionesFechaEntregaP{
+.cardCotizacionesFechaEntregaP {
   color: #008536;
   font-weight: bold;
   font-size: 14px;
 }
 
-.cardCotizacionesFechaEntrega{
+.cardCotizacionesFechaEntrega {
   font-size: 12px;
 }

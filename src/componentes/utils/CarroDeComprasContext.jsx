@@ -9,6 +9,8 @@ const CarroDeComprasProvider = ({ children }) => {
 
     const [reloadArrayProductos, setReloadArrayProductos] = useState(false);
     const [objetosArray, setObjetosArray] = useState([]);
+    const [precioNetoTotal, setPrecioNetoTotal] = useState(0);
+    const [descuentoTotal, setDescuentoTotal] = useState(0);
 
     const ObtenerProductosDelLocalStorage = () => {
         const productosEnCarrito = JSON.parse(localStorage.getItem('productosEnCarrito')) || [];
@@ -24,6 +26,8 @@ const CarroDeComprasProvider = ({ children }) => {
     useEffect(() => {
 
         ObtenerProductosDelLocalStorage();
+        setPrecioNetoTotal(calcularPrecioCesta());
+        setDescuentoTotal(calcularDescuentoCesta());
 
     }, [reloadArrayProductos])
 
@@ -56,7 +60,7 @@ const CarroDeComprasProvider = ({ children }) => {
 
 
     return (
-        <CarroDeComprasContext.Provider value={{ objetosArray, recargarProductos, eliminarObjetoArray ,calcularPrecioCesta, calcularDescuentoCesta }}>
+        <CarroDeComprasContext.Provider value={{ objetosArray, recargarProductos, eliminarObjetoArray, calcularPrecioCesta, calcularDescuentoCesta, precioNetoTotal, descuentoTotal }}>
             {children}
         </CarroDeComprasContext.Provider>
     )

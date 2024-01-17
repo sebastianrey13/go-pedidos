@@ -21,7 +21,7 @@ import { CarroDeComprasContext } from '../componentes/utils/CarroDeComprasContex
 const PedidoNuevo = () => {
 
     const navigate = useNavigate();
-    const { recargarProductos } = useContext(CarroDeComprasContext);
+    const { recargarProductos, precioNetoTotal, descuentoTotal } = useContext(CarroDeComprasContext);
     const [fechaActual, setFechaActual] = useState('');
     const [isOpenTercero, setIsOpenTercero] = useState(false)
     const [isError, setIsError] = useState(false);
@@ -237,6 +237,9 @@ const PedidoNuevo = () => {
                         fechaDeEntrega: fechaDeEntrega,
                         fechaActual: fechaActual,
                         productosCotizados: productosEnCarrito,
+                        precioNetoTotal: precioNetoTotal,
+                        descuentoTotal: descuentoTotal,
+                        percioConDescuento: precioNetoTotal - descuentoTotal,
                     }
 
                     // Agrega productosEnCarrito a cotizacionesRealizadas

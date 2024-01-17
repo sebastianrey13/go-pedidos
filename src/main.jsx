@@ -11,6 +11,7 @@ import Shorts from './routes/Shorts.jsx'
 import Chaquetas from './routes/Chaquetas.jsx'
 import Productos from './routes/Productos.jsx'
 import Historial from './routes/Historial.jsx'
+import DetalleCotizacionRealizada from './routes/DetalleCotizacionRealizada.jsx'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -19,13 +20,14 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Route path='/' element={<App />}>
           <Route path='/' element={<Navigate to={"/home"} />} />
           <Route path='/home' element={<Home />} />
-          <Route path='/realizar-pedido' element={<PedidoNuevo/>}/>
-          <Route path='/productos' element={<Productos/>}/>
-          <Route path='/productos/tennis' element={<Tennis/>}/>
-          <Route path='/productos/pantalones' element={<Pantalones/>}/>
-          <Route path='/productos/shorts' element={<Shorts/>}/>
-          <Route path='/productos/chaquetas' element={<Chaquetas/>}/>
-          <Route path='/historial' element={<Historial/>}/>
+          <Route path='/realizar-pedido' element={<PedidoNuevo />} />
+          <Route path='/productos' element={<Productos />} />
+          <Route path='/productos/tennis' element={<Tennis />} />
+          <Route path='/productos/pantalones' element={<Pantalones />} />
+          <Route path='/productos/shorts' element={<Shorts />} />
+          <Route path='/productos/chaquetas' element={<Chaquetas />} />
+          <Route path='/historial' element={<Historial />} />
+          <Route path='/historial/:id' element={<DetalleCotizacionRealizada />} />
         </Route>
       </Routes>
     </BrowserRouter>
