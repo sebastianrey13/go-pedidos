@@ -145,7 +145,7 @@
     position: relative;
     font-size: 12px;
     width: 100%;
-    height: 140px;
+    height: 200px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -178,13 +178,12 @@
 
 .cardProductoCarroContainer3 {
     width: 100px;
-    height: 100%;
+    height: 150px;
     font-size: 13px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: end;
-    gap: 20px;
 }
 
 .cardProductoCarroContainer3 div {
@@ -211,4 +210,6 @@
 
 .CardProducoCarroPrecioPapeleraIco {
     width: 20px;
+    position: absolute;
+    bottom: 15px;
 }

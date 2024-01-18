@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useContext } from 'react'
 import { CarroDeComprasContext } from './utils/CarroDeComprasContext.jsx'
 import Swal from 'sweetalert2'
+import '../css/carroCompras.css'
 
 import papelera from '../../public/papelera.png'
 
