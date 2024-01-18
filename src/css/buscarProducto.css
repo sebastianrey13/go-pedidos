@@ -41,10 +41,10 @@
 
 .divImgVolver {
   position: absolute;
-  top: 10px;
-  left: 10px;
-  width: 40px;
-  height: 40px;
+  top: 5px;
+  left: 5px;
+  width: 50px;
+  height: 50px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -63,5 +63,24 @@
   border: none;
   outline: none;
   font-size: 20px;
-  padding-left: 25px;
+  padding-left: 30px;
+}
+
+.divBuscadorProductos{
+  height: 83%;
+  overflow: auto;
+}
+
+.productosBuscados {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 60px;
+  border-bottom: 1px solid #e7e7e7;
+}
+
+.imgProductoBuscado {
+  width: 40px;
+  border-radius: 5px;
+  margin-right: 10px;
 }
