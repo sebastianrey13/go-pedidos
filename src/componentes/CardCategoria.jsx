@@ -1,7 +1,6 @@
 import React from 'react'
 import '../css/cardCategoria.css'
 import { Link } from 'react-router-dom'
-import tennisImg from '../../public/categorias/tennis.png'
 
 const CardCategoria = (props) => {
 

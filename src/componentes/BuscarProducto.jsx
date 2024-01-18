@@ -52,7 +52,7 @@ import tennisSambaBlancoRojo from '../../public/productos/tennis/tenis_samba_bla
 import tennisSambaBlancoVerde from '../../public/productos/tennis/tenis_samba_blanco_verde.png'
 import tennisSambaNegro from '../../public/productos/tennis/tenis_samba_negro.png'
 import tennisSambaVerde from '../../public/productos/tennis/tenis_samba_verde.png'
-import { faL } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom'
 
 const BuscarProducto = () => {
 
@@ -67,7 +67,7 @@ const BuscarProducto = () => {
   }
 
   const cerrarBuscador = () => {
-    setIsMenuDesplegado(false)
+    setIsMenuDesplegado(false);
     document.body.classList.remove('popup-open');
   }
 
@@ -799,10 +799,12 @@ const BuscarProducto = () => {
             {isBuscando && (
               <div className='divBuscadorProductos'>
                 {productosFiltrados.map((producto, index) => (
-                  <div className='productosBuscados' key={index + 1}>
-                    <img className='imgProductoBuscado' src={producto.colores[0].img} alt="" />
-                    <p>{producto.nombre}</p>
-                  </div>
+                  <Link onClick={cerrarBuscador} to={`/productos/${producto.id}`} key={index + 1}>
+                    <div className='productosBuscados'>
+                      <img className='imgProductoBuscado' src={producto.colores[0].img} alt="" />
+                      <p>{producto.nombre}</p>
+                    </div>
+                  </Link>
                 ))}
               </div>
             )}
