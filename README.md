@@ -1,3 +1,5 @@
 # React + Vite
 
-Go Pedidos en React
+Visualizacion del proyecto
+
+https://go-pedidos.vercel.app/

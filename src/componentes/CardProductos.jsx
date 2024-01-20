@@ -164,11 +164,13 @@ const CardProductos = (props) => {
   }
 
   const contadorMas = () => {
+    setMensajeError('');
     setUnidades(unidades + 1)
     calcularPrecio
   }
 
   const contadorMenos = () => {
+    setMensajeError('');
     if (unidades > 0) {
       setUnidades(unidades - 1)
       calcularPrecio
@@ -278,6 +280,8 @@ const CardProductos = (props) => {
 
     if (tallaSeleccionada === '') {
       setMensajeError('Por favor seleccione una talla');
+    } else if (unidades < 1) {
+      setMensajeError('La cantidad de unidades debe ser mayor a 0');
     } else {
       Swal.fire({
         title: 'Go Pedidos',

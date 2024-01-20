@@ -51,7 +51,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 340px;
+    height: 350px;
     gap: 8px;
 }
 
