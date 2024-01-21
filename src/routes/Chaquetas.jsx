@@ -35,30 +35,6 @@ const Chaquetas = () => {
         },
       ]
     },
-    {
-      id: 2,
-      nombre: 'Chaquetas Deportivas',
-      ref: '#967WENFIUH',
-      precio: 150000,
-      descuento : 0.12,
-      colores: [
-        {
-          id: 1,
-          color: 'Beige',
-          img: chquetaBeige,
-        },
-        {
-          id: 2,
-          color: 'Blanca',
-          img: chquetaBlanca,
-        },
-        {
-          id: 3,
-          color: 'Negra',
-          img: chquetaNegra,
-        },
-      ]
-    },
   ]
 
   return (

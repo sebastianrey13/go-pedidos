@@ -27,7 +27,7 @@ const Tennis = () => {
 
   const tennis = [
     {
-      id: 17,
+      id: 7,
       nombre: 'Tennis Deportivos',
       ref: '#5574ASD',
       precio: 150000,
@@ -66,7 +66,7 @@ const Tennis = () => {
       ]
     },
     {
-      id: 18,
+      id: 8,
       nombre: 'Tennis Grinch',
       ref: '#31874LJKD',
       descuento: 0.15,
@@ -90,7 +90,7 @@ const Tennis = () => {
       ]
     },
     {
-      id: 19,
+      id: 9,
       nombre: 'Tennis Deportivos EQ19',
       ref: '#2694EQ19',
       precio: 661999,
@@ -119,7 +119,7 @@ const Tennis = () => {
       ]
     },
     {
-      id: 20,
+      id: 10,
       nombre: 'Tennis Samba',
       ref: '#96574ASAMBAD',
       precio: 299999,

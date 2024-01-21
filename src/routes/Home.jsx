@@ -31,27 +31,7 @@ const Home = () => {
       id: 4,
       nombre: 'TENNIS',
       img: tennisImg,
-    },
-    {
-      id: 1,
-      nombre: 'CHAQUETAS',
-      img: chaquetasImg,
-    },
-    {
-      id: 2,
-      nombre: 'PANTALONES',
-      img: pantalonesImg,
-    },
-    {
-      id: 3,
-      nombre: 'SHORTS',
-      img: shortsImg,
-    },
-    {
-      id: 4,
-      nombre: 'TENNIS',
-      img: tennisImg,
-    },
+    }
   ]
 
 
