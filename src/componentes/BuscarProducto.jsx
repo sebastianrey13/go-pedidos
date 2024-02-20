@@ -98,30 +98,6 @@ const BuscarProducto = () => {
     },
     {
       id: 2,
-      nombre: 'Chaquetas Deportivas',
-      ref: '#967WENFIUH',
-      precio: 150000,
-      descuento: 0.12,
-      colores: [
-        {
-          id: 1,
-          color: 'Beige',
-          img: chquetaBeige,
-        },
-        {
-          id: 2,
-          color: 'Blanca',
-          img: chquetaBlanca,
-        },
-        {
-          id: 3,
-          color: 'Negra',
-          img: chquetaNegra,
-        },
-      ]
-    },
-    {
-      id: 3,
       nombre: 'Pantalones Deportivos',
       ref: '#36LKN74A',
       precio: 150000,
@@ -158,358 +134,9 @@ const BuscarProducto = () => {
           img: pantalonMarron,
         }
       ]
-    }, {
-      id: 4,
-      nombre: 'Pantalones Deportivos',
-      ref: '#36LKN74A',
-      precio: 150000,
-      descuento: 0.30,
-      colores: [
-        {
-          id: 1,
-          color: 'Azul',
-          img: pantalonAzul,
-        },
-        {
-          id: 2,
-          color: 'Gris',
-          img: pantalonGris,
-        },
-        {
-          id: 3,
-          color: 'Rojo',
-          img: pantalonRojo,
-        },
-        {
-          id: 4,
-          color: 'Negro',
-          img: pantalonNegro,
-        },
-        {
-          id: 5,
-          color: 'Celeste',
-          img: pantalonCeleste,
-        },
-        {
-          id: 6,
-          color: 'Marron',
-          img: pantalonMarron,
-        }
-      ]
-    }, {
-      id: 5,
-      nombre: 'Pantalones Deportivos',
-      ref: '#36LKN74A',
-      precio: 150000,
-      descuento: 0.40,
-      colores: [
-        {
-          id: 1,
-          color: 'Azul',
-          img: pantalonAzul,
-        },
-        {
-          id: 2,
-          color: 'Gris',
-          img: pantalonGris,
-        },
-        {
-          id: 3,
-          color: 'Rojo',
-          img: pantalonRojo,
-        },
-        {
-          id: 4,
-          color: 'Negro',
-          img: pantalonNegro,
-        },
-        {
-          id: 5,
-          color: 'Celeste',
-          img: pantalonCeleste,
-        },
-        {
-          id: 6,
-          color: 'Marron',
-          img: pantalonMarron,
-        }
-      ]
     },
     {
-      id: 6,
-      nombre: 'Pantalones Deportivos',
-      ref: '#36LKN74A',
-      precio: 150000,
-      descuento: 0.15,
-      colores: [
-        {
-          id: 1,
-          color: 'Azul',
-          img: pantalonAzul,
-        },
-        {
-          id: 2,
-          color: 'Gris',
-          img: pantalonGris,
-        },
-        {
-          id: 3,
-          color: 'Rojo',
-          img: pantalonRojo,
-        },
-        {
-          id: 4,
-          color: 'Negro',
-          img: pantalonNegro,
-        },
-        {
-          id: 5,
-          color: 'Celeste',
-          img: pantalonCeleste,
-        },
-        {
-          id: 6,
-          color: 'Marron',
-          img: pantalonMarron,
-        }
-      ]
-    },
-    {
-      id: 7,
-      nombre: 'Pantalones Deportivos',
-      ref: '#36LKN74A',
-      precio: 150000,
-      descuento: 0.25,
-      colores: [
-        {
-          id: 1,
-          color: 'Azul',
-          img: pantalonAzul,
-        },
-        {
-          id: 2,
-          color: 'Gris',
-          img: pantalonGris,
-        },
-        {
-          id: 3,
-          color: 'Rojo',
-          img: pantalonRojo,
-        },
-        {
-          id: 4,
-          color: 'Negro',
-          img: pantalonNegro,
-        },
-        {
-          id: 5,
-          color: 'Celeste',
-          img: pantalonCeleste,
-        },
-        {
-          id: 6,
-          color: 'Marron',
-          img: pantalonMarron,
-        }
-      ]
-    },
-    {
-      id: 8,
-      nombre: 'Pantalones Deportivos',
-      ref: '#36LKN74A',
-      precio: 150000,
-      descuento: 0.18,
-      colores: [
-        {
-          id: 1,
-          color: 'Azul',
-          img: pantalonAzul,
-        },
-        {
-          id: 2,
-          color: 'Gris',
-          img: pantalonGris,
-        },
-        {
-          id: 3,
-          color: 'Rojo',
-          img: pantalonRojo,
-        },
-        {
-          id: 4,
-          color: 'Negro',
-          img: pantalonNegro,
-        },
-        {
-          id: 5,
-          color: 'Celeste',
-          img: pantalonCeleste,
-        },
-        {
-          id: 6,
-          color: 'Marron',
-          img: pantalonMarron,
-        }
-      ]
-    },
-    {
-      id: 9,
-      nombre: 'Pantalones Deportivos',
-      ref: '#36LKN74A',
-      precio: 150000,
-      descuento: 0.35,
-      colores: [
-        {
-          id: 1,
-          color: 'Azul',
-          img: pantalonAzul,
-        },
-        {
-          id: 2,
-          color: 'Gris',
-          img: pantalonGris,
-        },
-        {
-          id: 3,
-          color: 'Rojo',
-          img: pantalonRojo,
-        },
-        {
-          id: 4,
-          color: 'Negro',
-          img: pantalonNegro,
-        },
-        {
-          id: 5,
-          color: 'Celeste',
-          img: pantalonCeleste,
-        },
-        {
-          id: 6,
-          color: 'Marron',
-          img: pantalonMarron,
-        }
-      ]
-    },
-    {
-      id: 10,
-      nombre: 'Pantalones Deportivos',
-      ref: '#36LKN74A',
-      precio: 150000,
-      descuento: 0.26,
-      colores: [
-        {
-          id: 1,
-          color: 'Azul',
-          img: pantalonAzul,
-        },
-        {
-          id: 2,
-          color: 'Gris',
-          img: pantalonGris,
-        },
-        {
-          id: 3,
-          color: 'Rojo',
-          img: pantalonRojo,
-        },
-        {
-          id: 4,
-          color: 'Negro',
-          img: pantalonNegro,
-        },
-        {
-          id: 5,
-          color: 'Celeste',
-          img: pantalonCeleste,
-        },
-        {
-          id: 6,
-          color: 'Marron',
-          img: pantalonMarron,
-        }
-      ]
-    },
-    {
-      id: 11,
-      nombre: 'Pantalones Deportivos',
-      ref: '#36LKN74A',
-      precio: 150000,
-      descuento: 0.5,
-      colores: [
-        {
-          id: 1,
-          color: 'Azul',
-          img: pantalonAzul,
-        },
-        {
-          id: 2,
-          color: 'Gris',
-          img: pantalonGris,
-        },
-        {
-          id: 3,
-          color: 'Rojo',
-          img: pantalonRojo,
-        },
-        {
-          id: 4,
-          color: 'Negro',
-          img: pantalonNegro,
-        },
-        {
-          id: 5,
-          color: 'Celeste',
-          img: pantalonCeleste,
-        },
-        {
-          id: 6,
-          color: 'Marron',
-          img: pantalonMarron,
-        }
-      ]
-    },
-    {
-      id: 12,
-      nombre: 'Pantalones Deportivos',
-      ref: '#36LKN74A',
-      precio: 150000,
-      descuento: 0.13,
-      colores: [
-        {
-          id: 1,
-          color: 'Azul',
-          img: pantalonAzul,
-        },
-        {
-          id: 2,
-          color: 'Gris',
-          img: pantalonGris,
-        },
-        {
-          id: 3,
-          color: 'Rojo',
-          img: pantalonRojo,
-        },
-        {
-          id: 4,
-          color: 'Negro',
-          img: pantalonNegro,
-        },
-        {
-          id: 5,
-          color: 'Celeste',
-          img: pantalonCeleste,
-        },
-        {
-          id: 6,
-          color: 'Marron',
-          img: pantalonMarron,
-        }
-      ]
-    },
-    {
-      id: 13,
+      id: 3,
       nombre: 'Shorts Deportivos',
       ref: '#3274AfD',
       precio: 89900,
@@ -543,7 +170,7 @@ const BuscarProducto = () => {
       ]
     },
     {
-      id: 14,
+      id: 4,
       nombre: 'Short Dama Tejido',
       ref: '#0316216KD',
       precio: 32999,
@@ -577,7 +204,7 @@ const BuscarProducto = () => {
       ]
     },
     {
-      id: 15,
+      id: 5,
       nombre: 'Short Hombre Tejido',
       ref: '#12SD4E512',
       precio: 61990,
@@ -606,7 +233,7 @@ const BuscarProducto = () => {
       ]
     },
     {
-      id: 16,
+      id: 6,
       nombre: 'Short Made For Training',
       ref: '#SMFT74ASAMBAD',
       precio: 91999,
@@ -630,7 +257,7 @@ const BuscarProducto = () => {
       ]
     },
     {
-      id: 17,
+      id: 7,
       nombre: 'Tennis Deportivos',
       ref: '#5574ASD',
       precio: 150000,
@@ -669,7 +296,7 @@ const BuscarProducto = () => {
       ]
     },
     {
-      id: 18,
+      id: 8,
       nombre: 'Tennis Grinch',
       ref: '#31874LJKD',
       descuento: 0.15,
@@ -693,7 +320,7 @@ const BuscarProducto = () => {
       ]
     },
     {
-      id: 19,
+      id: 9,
       nombre: 'Tennis Deportivos EQ19',
       ref: '#2694EQ19',
       precio: 661999,
@@ -722,7 +349,7 @@ const BuscarProducto = () => {
       ]
     },
     {
-      id: 20,
+      id: 10,
       nombre: 'Tennis Samba',
       ref: '#96574ASAMBAD',
       precio: 299999,
@@ -754,7 +381,7 @@ const BuscarProducto = () => {
           img: tennisSambaVerde,
         }
       ]
-    },
+    }
   ]
 
   const buscarProducto = (e) => {

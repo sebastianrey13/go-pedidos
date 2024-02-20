@@ -42,7 +42,6 @@ const Header = () => {
             <div className='header-contenido'>
                 <MenuMobile />
                 <Link to='/home'><img className='header-img-iconos' src={iconoBlanco} alt="icono-blanco" /></Link>
-                {/* <h1 className='header-h1'>GoPedidos</h1> */}
             </div>
             <div className='buscarProductoIco'>
                 <BuscarProducto />
